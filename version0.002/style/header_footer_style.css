@@ -65,5 +65,9 @@ body {
 } 
 
 .icons {
-    width: 20%;
+    width: 30%;
+}
+
+.icons:hover {
+    opacity: 0.6;
 }
