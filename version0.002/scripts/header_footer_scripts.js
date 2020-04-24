@@ -9,9 +9,11 @@ var device_width = 0;
 var font_size = '';
 
 setHeaderElementsSize()
+fixTextPosition()
 
 window.addEventListener("resize", function(event) {
     setHeaderElementsSize();
+    fixTextPosition()
 })
 
 function getDeviceWidth() {
@@ -45,3 +47,14 @@ function setHeaderElementsSize() {
     font_size = getFontSize(edited_width)
     document.getElementById('header_bottom').style.fontSize = font_size;
 };
+
+function sizeToPercentege(size) {
+
+}
+
+function fixTextPosition() {
+    var device_width = getDeviceWidth()
+    // var edited_width = 3 + Math.floor(Math.pow(device_width/8000), 2);
+    var edited_width = 12;
+    document.getElementById('dummy').style.paddingTop = edited_width + "%";
+}
