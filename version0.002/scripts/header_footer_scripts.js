@@ -9,11 +9,11 @@ var device_width = 0;
 var font_size = '';
 
 setHeaderElementsSize()
-fixTextPosition()
+setMainElmentsMargin()
 
 window.addEventListener("resize", function(event) {
     setHeaderElementsSize();
-    fixTextPosition()
+    setMainElmentsMargin()
 })
 
 function getDeviceWidth() {
@@ -52,9 +52,10 @@ function sizeToPercentege(size) {
 
 }
 
-function fixTextPosition() {
-    var device_width = getDeviceWidth()
-    // var edited_width = 3 + Math.floor(Math.pow(device_width/8000), 2);
-    var edited_width = 12;
-    document.getElementById('dummy').style.paddingTop = edited_width + "%";
+function setMainElmentsMargin() {
+    var height_header = window.getComputedStyle(header).getPropertyValue("height");
+    var footer = document.getElementsByClassName("footer")[0];
+    var height_footer = window.getComputedStyle(footer, null).getPropertyValue("height");
+    document.getElementById('dummy').style.marginTop = height_header;
+    document.getElementById('dummy').style.marginBottom = height_footer;
 }

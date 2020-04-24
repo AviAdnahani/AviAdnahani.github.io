@@ -4,7 +4,7 @@ body {
     font-family: 'Comfortaa', cursive;
 }
 
-#header {
+header {
     box-shadow: black 0px 0px 10px 0px;
     width: 100%;
     position: fixed;
@@ -79,6 +79,5 @@ body {
 } 
 
 #dummy {
-    /* margin-top: 8%; */
     font-size: 50px;
 }
