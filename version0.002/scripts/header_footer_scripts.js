@@ -48,14 +48,15 @@ function setHeaderElementsSize() {
     document.getElementById('header_bottom').style.fontSize = font_size;
 };
 
-function sizeToPercentege(size) {
-
-}
-
 function setMainElmentsMargin() {
     var height_header = window.getComputedStyle(header).getPropertyValue("height");
     var footer = document.getElementsByClassName("footer")[0];
     var height_footer = window.getComputedStyle(footer, null).getPropertyValue("height");
-    document.getElementById('dummy').style.marginTop = height_header;
-    document.getElementById('dummy').style.marginBottom = height_footer;
+    document.getElementById('main').style.marginTop = height_header;
+    document.getElementById('main').style.marginBottom = height_footer;
+}
+
+function headerSwitch(turn_on) {
+    document.getElementsByClassName('header_bottom_link').style.backgroundColor = "#006d77"; // off
+    document.getElementById("").style.backgroundColor = "#83c5be";
 }
