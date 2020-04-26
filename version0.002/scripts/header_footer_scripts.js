@@ -8,13 +8,13 @@ const FACTORE = 37
 var device_width = 0;
 var font_size = '';
 
-setHeaderElementsSize()
-setMainElmentsMargin()
+setHeaderElementsSize();
+setMainElmentsMargin();
 
 window.addEventListener("resize", function(event) {
     setHeaderElementsSize();
-    setMainElmentsMargin()
-})
+    setMainElmentsMargin();
+});
 
 function getDeviceWidth() {
     return (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -39,21 +39,16 @@ function setHeaderElementsSize() {
     var device_hieght = getDeviceHeight()
     var edited_width = Math.ceil(device_width/FACTORE);
     var edited_hieght = Math.ceil(device_hieght/FACTORE); // for logo and footer
-    
-    // set logo size
-    // some code
-    
-    // set font size
     font_size = getFontSize(edited_width)
-    document.getElementById('header_bottom').style.fontSize = font_size;
+    document.getElementById('header_bottom').style['fontSize'] = font_size;
 };
 
 function setMainElmentsMargin() {
     var height_header = window.getComputedStyle(header).getPropertyValue("height");
-    var footer = document.getElementsByClassName("footer")[0];
+    var footer = document.getElementById("footer");
     var height_footer = window.getComputedStyle(footer, null).getPropertyValue("height");
-    document.getElementById('main').style.marginTop = height_header;
-    document.getElementById('main').style.marginBottom = height_footer;
+    document.getElementById('main_box').style.marginTop = height_header;
+    document.getElementById('main_box').style.marginBottom = height_footer;
 }
 
 function headerSwitch(turn_on) {
