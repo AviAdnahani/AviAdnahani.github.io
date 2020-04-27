@@ -92,7 +92,7 @@ table {
     border-collapse: collapse; 
   }
 th, td {
-  padding: 2%;
+  padding: 1%;
   font-size: 15px;
 }
 
@@ -104,10 +104,10 @@ th {
 .sides {
     color: #e29578;
     text-align: center;
+    width: 10%;
 }
 .mid {
-    font-size: 20px; 
-    width: 60%;
+    font-size: 16px; 
 }
 
 .table_title {
