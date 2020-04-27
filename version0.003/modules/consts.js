@@ -1,5 +1,5 @@
-const classes = [];
-const ids = [];
+const classes = {};
+const ids = {};
 
 
 // // CSS base colors used in the website
