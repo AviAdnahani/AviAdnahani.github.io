@@ -1,3 +1,7 @@
+
+
+
+const tags = {}
 const classes = {};
 const ids = {};
 

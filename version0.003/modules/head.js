@@ -1,5 +1,6 @@
-import { setTag } from './global.js';
-
+// import { setTag } from './global.js';
+const TAG = 'tag';
+const PERENT_TAG = 'perent_tag';
 const WEBSIT_NAME = "Avi Adnahani";
 
 const VIEWPORT = {
@@ -14,7 +15,7 @@ const STYLESHEET_LINK = {
     perent_tag: 'head',
     rel: "stylesheet", 
     type: "text/css", 
-    href: "version0.002/style/header_footer_style.css"
+    href: "style/style.css"
 }
 
 const STYLESHEET_FONT = {
@@ -24,15 +25,25 @@ const STYLESHEET_FONT = {
     href: "https://fonts.googleapis.com/css?family=Comfortaa&display=swap", 
 }
 
-const HEDER_TAGS = [VIEWPORT, STYLESHEET_LINK, STYLESHEET_FONT];
+const HEDER_TAGS = [VIEWPORT, STYLESHEET_FONT];
 
 
 function setHead() {
     /*set head elements using dictionary from consts.js*/
     document.title = WEBSIT_NAME;
     for (const val of HEDER_TAGS) {
-        setTag(val);
+        setTheHeadElements(val);
     }
 };
+
+function setTheHeadElements(sorce) {
+    var tag = document.createElement(sorce[TAG]);
+    for (const key in sorce) {
+        if (key != TAG & key != PERENT_TAG) {
+            tag.setAttribute(key, sorce[key]);
+        }
+    }
+    document.getElementsByTagName(sorce[PERENT_TAG])[0].appendChild(tag);
+}
 
 export { setHead };
