@@ -18,9 +18,7 @@ function createHeader() {
         var a = document.createElement('a');
         a.setAttribute('herf', c);
         a.innerHTML = c;
-
         insert = document.createElement('div');
-
         insert.setAttribute('class', 'header_bottom_link');
         insert.setAttribute('id', c);
         insert.appendChild(a);
@@ -58,8 +56,8 @@ function addEvenListenToLinks() {
 function addEvenListenToHeaderFontSize() {
     window.addEventListener("resize", function(event) {
         setHeaderElementsSize();
-        setMainElmentsMargin();
-        stickyTopTable();
+        // setMainElmentsMargin();
+        // stickyTopTable();
     });
 }
 

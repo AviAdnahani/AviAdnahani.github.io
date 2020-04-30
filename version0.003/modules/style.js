@@ -90,6 +90,15 @@ function styleFooter(){
     document.getElementsByTagName(CLASS_FOOTER)[0].style.justifyContent = "space-evenly";
 };
 
+function styleTable(table) {
+    table.style.width = "100%";
+    table.style.textAlign = "left";
+    table.style.position = "relative";
+    table.style.borderColleapse = "collapse";
+    table.style.borderSpacing = "0px";
+    table.style.zIndex = "-1";
+};
+
 function style() {
     styleGeneral();
     styleHeder();
@@ -97,4 +106,4 @@ function style() {
     styleFooter();
 }
 
-export { style }
+export { style, styleTable }
