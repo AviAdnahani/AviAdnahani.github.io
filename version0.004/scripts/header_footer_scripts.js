@@ -8,7 +8,7 @@ const FACTORE = 37
 var device_width = 0;
 var font_size = '';
 
-setHeaderElementsSize();
+// setHeaderElementsSize();
 setMainElmentsMargin();
 stickyTopTable();
 
@@ -18,7 +18,7 @@ window.addEventListener("scroll", function(event) {
 });
 
 window.addEventListener("resize", function(event) {
-    setHeaderElementsSize();
+    // setHeaderElementsSize();
     setMainElmentsMargin();
     stickyTopTable();
 });
