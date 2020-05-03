@@ -24,7 +24,7 @@ const HEADER_META = {
         color: "white",
         background: COLOR_GREEN_DARK,
         top: "0", 
-        flexDirection: "column",
+        flexDirection: "row",
     }
 };
 
@@ -38,9 +38,9 @@ const LOGO_IMAGE_META = {
     },
     style: {
         display: "block",
-        marginLeft: "auto",
-        marginRight: "auto",
-        width: "15%",
+        margin: "auto",
+        padding: "1%",
+        width: "10%",
         height: "auto",
     }
 };
@@ -69,10 +69,10 @@ const HEADER_BOTTOM_ELEMENT_TEMPLATE = {
         display: "flex",
         width: "100%",
         height: "100%",
-        padding: "1%",
+        paddingTop: "3%",
         justifyContent: "center",
         userSelect: "none",
-        fontSize: "2vw"
+        fontSize: "1vw"
     },
     events: {
         mouseenter: {
@@ -120,7 +120,6 @@ const HEADER_BOTTOM_ELEMENT_METADATA = {
         innerHtml: "contact",
     },
 }
-
 
 export { 
     HEADER_META, 

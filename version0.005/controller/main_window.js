@@ -4,6 +4,11 @@ function setBodyStyle() {
     var body = document.getElementById(ID_BODY);
     body.style.margin = 0;
     body.style.padding = 0;
+    body.style.fontFamily = "Comfortaa, cursive";
 }
 
-export { setBodyStyle };
+function loadMain(event){
+    return true;
+}
+
+export { setBodyStyle, loadMain};
