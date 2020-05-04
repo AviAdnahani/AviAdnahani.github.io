@@ -18,7 +18,7 @@ window.addEventListener("scroll", function(event) {
 });
 
 window.addEventListener("resize", function(event) {
-    // setHeaderElementsSize();
+    setHeaderElementsSize();
     setMainElmentsMargin();
     stickyTopTable();
 });
