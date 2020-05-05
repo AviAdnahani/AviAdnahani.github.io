@@ -19,27 +19,31 @@ header {
 }
 
 .logo{
-    width:15%;
+    width:8%;
+    height:8%;
     padding: 1%;
 }
 
 #header_bottom {
     display: flex;
     flex-direction: row;
-    margin: auto;
-    padding: auto;
+    padding-left: 15%;
+    padding-right: 15%;
+    
 }
 
-.header_bottom_link {
-    display: flex;
-    text-align: center;
+#header_bottom > a {
+    color: #edf6f9;
+    text-decoration: none;
+    margin: auto;
     padding: 3%;
     font-size: 2vw;
+    
 }
 
-.header_bottom_link:hover {
+#header_bottom > a:hover {
     background-color: #83c5be;
-    user-select: none;
+/*     user-select: none;  */
 }
 
 #footer {
@@ -55,7 +59,7 @@ header {
 
 .icons {
     font-size: 0;
-    width: 25%;
+    width: 15%;
     height: auto;
 }
 
@@ -76,6 +80,10 @@ th, td {
   font-size: 15px;
 }
 
+td {
+  padding-top:6%;
+  padding-bottom:6%;
+}
 th {
     background: #edf6f9;
     color: #83c5be;
@@ -90,9 +98,9 @@ th {
 }
 
 .mid {
-    font-size: 3vw; 
+    font-size: 2vw; 
 }
 
 .table_title {
-    font-size: 4vw;
+    font-size: 3vw;
 }
