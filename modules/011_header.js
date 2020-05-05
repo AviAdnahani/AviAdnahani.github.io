@@ -86,9 +86,6 @@ var GEVENT = {
 var GSTYLE = {
     display: "flex",
     width: "100%",
-    // height: "100%",
-    // paddingTop: "3%",
-    // margin: "auto",
     alignItems: "center",
     justifyContent: "center",
     userSelect: "none",
