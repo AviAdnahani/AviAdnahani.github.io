@@ -15,7 +15,6 @@ var EVENTS = "events";
 class elementCreator_class {
 
     #new_element = null;
-    #new_element_template = null;
     #new_element_tag = null;
     #perant_id = null;
     #attributes_dict = null;
@@ -46,44 +45,18 @@ class elementCreator_class {
             this.attributes_dict = this.SOURCE_DICT[ATTRIBUTS];
         }
         else{
+            console.error('THE INPUT DICTIONARY MISSES REQURIED KEYS');
             return false;
         }
         if (this.SOURCE_DICT.hasOwnProperty(STYLE)) {
             this.style_dict = this.SOURCE_DICT[STYLE];
         }
         if (this.SOURCE_DICT.hasOwnProperty(INNER_HTML)) {
-            this.innerhtml = this.SOURCE_DICT[INNER_HTML];
+            this.inner_html = this.SOURCE_DICT[INNER_HTML];
         }
         if (this.SOURCE_DICT.hasOwnProperty(EVENTS)) {
             this.events_dict = this.SOURCE_DICT[EVENTS];
         }
-        return true;
-    }
-
-    setPriviteTemplate() {
-        if (this.testRequriedKeysTemplete()) {
-            this.new_element_tag = this.SOURCE_DICT[ELEMENT];
-            
-        }
-        else {
-            return false;
-        }
-        if (this.SOURCE_DICT.hasOwnProperty(PERENT_ID)) {
-            this.perant_id = this.SOURCE_DICT[PERENT_ID];
-        }
-        if (this.SOURCE_DICT.hasOwnProperty(ATTRIBUTS)) {
-            this.attributes_dict = this.SOURCE_DICT[ATTRIBUTS];
-        }
-        if (this.SOURCE_DICT.hasOwnProperty(STYLE)) {
-            this.style_dict = this.SOURCE_DICT[STYLE];
-        }
-        if (this.SOURCE_DICT.hasOwnProperty(INNER_HTML)) {
-            this.innerhtml = this.SOURCE_DICT[INNER_HTML];
-        }
-        if (this.SOURCE_DICT.hasOwnProperty(EVENTS)) {
-            this.events_dict = this.SOURCE_DICT[EVENTS];
-        }
-        
         return true;
     }
 
@@ -100,10 +73,6 @@ class elementCreator_class {
         return false;
     }
 
-    testRequriedKeysTemplete() {
-        return (this.testExistence(ELEMENT, this.SOURCE_DICT));
-    }
-
     createNewElement() {
         this.new_element = document.createElement(this.new_element_tag);
     }
@@ -111,78 +80,58 @@ class elementCreator_class {
     appendNewElementToPerant(new_element_input=null) {
         // append child to perant
         var perant = document.getElementById(this.perant_id); 
-        let new_element = this.setNotNull(this.new_element, new_element_input);
         if (this.perant_id == ID_BODY) {
-            perant.insertBefore(new_element, perant.childNodes[0]);
+            perant.insertBefore(this.new_element, perant.childNodes[0]);
         }
         else {
-            perant.appendChild(new_element);
+            perant.appendChild(this.new_element);
         }
         return true;
     }
     
-    setElementAttributes(attributes_dict_input=null, new_element_input=null) {
-        let new_element = this.setNotNull(this.new_element, new_element_input);
-        let attr_dict = this.setInput(ATTRIBUTS, attributes_dict_input);
-        for (const attributes in attr_dict) {
-            new_element.setAttribute(attributes, attr_dict[attributes]);
+    setElementAttributes() {
+        for (const attributes in this.attributes_dict) {
+            this.new_element.setAttribute(attributes, this.attributes_dict[attributes]);
         }
     }
 
-    setStyle(style_dict_input = null, new_element_input=null) {
-        let sty_dict = this.setInput(STYLE, style_dict_input);
-        let new_element = this.setNotNull(this.new_element, new_element_input);
-        for (const new_style in sty_dict) {
-            new_element.style[new_style] = sty_dict[new_style];
+    setStyle() {
+        for (const new_style in this.style_dict) {
+            this.new_element.style[new_style] = this.style_dict[new_style];
         }
     }
 
-    // setEvents(events_dict_input = null, new_element_input=null) {
-    //     let eve_dict = this.setInput(EVENTS, events_dict_input);
-    //     var new_element = this.setNotNull(this.new_element, new_element_input);
-    //     for (const event_name in eve_dict) {    
-    //         var new_event_dict = eve_dict[event_name];
-    //         if (this.testExistence(STYLE, new_event_dict)){
-    //             var new_style_dict = new_event_dict[STYLE];
-    //             for (const style_name in new_style_dict){
-    //                 const style_value = new_style_dict[style_name];
-    //                 new_element.addEventListener(event_name, function(event) {
-    //                     event.target.style[style_name] = style_value;
-    //                 }, false);
-    //             }
-    //         }
-    //     }
-    // }
+    setEvents() {
+        for (const event_name in this.events_dict) {    
+            var new_event_dict = this.events_dict[event_name];
+            if (this.testExistence(STYLE, new_event_dict)){
+                var new_style_dict = new_event_dict[STYLE];
+                for (const style_name in new_style_dict){
+                    const style_value = new_style_dict[style_name];
+                    this.new_element.addEventListener(event_name, function(event) {
+                        event.target.style[style_name] = style_value;
+                    }, false);
+                }
+            }
+        }
+    }
 
-    setInnerHtml(SOURCE_DICT_INPUT = null, new_element_input=null) {
-        let new_element = this.setNotNull(this.new_element, new_element_input);
-        let inner = this.setInput(INNER_HTML, SOURCE_DICT_INPUT);
-        new_element.innerHTML = inner;
+    setInnerHtml() {
+        this.new_element.innerHTML = this.SOURCE_DICT[INNER_HTML];
     }
 
     creatElementP() {
-        let template_flage;
         let status;
-        if(!this.TEMPLATE) {
-            status = this.setPrivite();
-            template_flage = false;
-        } else {
-            status = this.setPriviteTemplate();
-            template_flage = true;
-        }
+        status = this.setPrivite();
         if(status) {
             this.createNewElement();
-            if(this.attributes_dict) this.setElementAttributes();
+            if(this.attributes_dict) this.setElementAttributes(); // not have to do this if (this is dict is required)
             if(this.style_dict) this.setStyle();
-            // if(this.events_dict) this.setEvents();
+            if(this.events_dict) this.setEvents();
             if(this.inner_html) this.setInnerHtml();
-            if (template_flage) {
-                return this.addMetaDataToElement();
-            }
-            else {
-                return this.appendNewElementToPerant();
-            }
+            return this.appendNewElementToPerant();
         }
+        console.error('DID NOT SET ATTRIBUTES!! - the status is false');
         return false;
     }
 
@@ -198,16 +147,6 @@ class elementCreator_class {
             this.appendNewElementToPerant(new_element_template);
         }
         return true;
-    }
-
-    setInput(attr, new_input=null) {
-        if (!new_input) return this.SOURCE_DICT[attr];
-        return new_input[attr];
-    }
-
-    setNotNull(obj1, obj2) {
-        if (!obj2) return obj1;
-        return obj2;
     }
 }
 

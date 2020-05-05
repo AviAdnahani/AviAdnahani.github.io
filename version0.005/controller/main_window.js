@@ -7,8 +7,8 @@ function setBodyStyle() {
     body.style.fontFamily = "Comfortaa, cursive";
 }
 
-function loadMain(event){
-    return true;
+function loadMain(){
+    console.log("what the fuck?");
 }
 
 export { setBodyStyle, loadMain};

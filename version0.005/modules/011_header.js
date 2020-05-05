@@ -59,11 +59,76 @@ const HEADER_BOTTOM_META = {
     }
 };
 
-const HEADER_BOTTOM_ELEMENT_TEMPLATE = {
+
+
+var INTRODUCTION = 'introduction';
+var EXPERIENCE = "experience";
+var EDUCATION = "education";
+var PROJECTS = "projects";
+var CONTACT = "contact";
+var GFUNC = 'loadMain()';
+var GEVENT = {
+    mouseenter: {
+        style: {
+            backgroundcolor: COLOR_GREEN_LIGHT,
+        },
+    },
+    mouseleave: {
+        style: {
+            backgroundcolor: COLOR_GREEN_DARK,
+        }
+    },
+}
+var GSTYLE = {
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    paddingTop: "3%",
+    justifyContent: "center",
+    userSelect: "none",
+    fontSize: "1vw"
+}
+
+const HEADER_BOTTOM_INTRODUCTION = {
     element: DIV,
     perent_id: ID_HEADER_BOTTOM,
+    innerHtml: INTRODUCTION,
     attributs: {
-        onclick: "loadMain(this);"
+        id: 'id_' + INTRODUCTION,  
+    },
+    style: GSTYLE,
+    events: GEVENT,
+}
+
+const HEADER_BOTTOM_EXPERIENCE = {
+    element: DIV,
+    perent_id: ID_HEADER_BOTTOM,
+    innerHtml: EXPERIENCE,
+    attributs: {
+        id: "id_" + EXPERIENCE,
+    },
+    style: GSTYLE,
+    events: GEVENT,
+}
+
+const HEADER_BOTTOM_EDUCATION = {
+    element: DIV,
+    perent_id: ID_HEADER_BOTTOM,
+    innerHtml: EDUCATION,
+    attributs: {
+        id: "id_"+EDUCATION,
+    },
+    style: GSTYLE,
+    events: GEVENT,
+}
+
+const HEADER_BOTTOM_PROJECTS = {
+    element: DIV,
+    perent_id: ID_HEADER_BOTTOM,
+    innerHtml: PROJECTS,
+    attributs: {
+        id: "id_"+PROJECTS,
+        onclick: GFUNC
     },
     style: {
         display: "flex",
@@ -88,43 +153,88 @@ const HEADER_BOTTOM_ELEMENT_TEMPLATE = {
     },
 }
 
-const HEADER_BOTTOM_ELEMENT_METADATA = {
-    introduction: {
-        attributs: {
-            id: "id_introduction",  
-        },
-        innerHtml: "introduction",
+const HEADER_BOTTOM_CONTACT = {
+    element: DIV,
+    perent_id: ID_HEADER_BOTTOM,
+    innerHtml: CONTACT,
+    attributs: {
+        id: "id_" + CONTACT,
     },
-    experience: {
-        attributs: {
-            id: "id_experience",
-        },
-        innerHtml: "experience",
-    },
-    education: {
-        attributs: {
-        id: "id_education",
-        },
-        innerHtml: "education",
-    },
-    projects: {
-        attributs: {
-            id: "id_projects",
-        },
-        innerHtml: "projects",
-    },
-    contact: {
-        attributs: {
-            id: "id_contact",
-        },
-        innerHtml: "contact",
-    },
+    style: GSTYLE,
+    events: GEVENT,
 }
+
+// const HEADER_BOTTOM_ELEMENT_TEMPLATE = {
+//     element: DIV,
+//     perent_id: ID_HEADER_BOTTOM,
+//     attributs: {
+//         onclick: "loadMain(this);"
+//     },
+//     style: {
+//         display: "flex",
+//         width: "100%",
+//         height: "100%",
+//         paddingTop: "3%",
+//         justifyContent: "center",
+//         userSelect: "none",
+//         fontSize: "1vw"
+//     },
+//     events: {
+//         mouseenter: {
+//             style: {
+//                 backgroundcolor: COLOR_GREEN_LIGHT,
+//             },
+//         },
+//         mouseleave: {
+//             style: {
+//                 backgroundcolor: COLOR_GREEN_DARK,
+//             }
+//         },
+//     },
+// }
+
+// const HEADER_BOTTOM_ELEMENT_METADATA = {
+//     introduction: {
+//         attributs: {
+//             id: "id_introduction",  
+//         },
+//         innerHtml: "introduction",
+//     },
+//     experience: {
+//         attributs: {
+//             id: "id_experience",
+//         },
+//         innerHtml: "experience",
+//     },
+//     education: {
+//         attributs: {
+//         id: "id_education",
+//         },
+//         innerHtml: "education",
+//     },
+//     projects: {
+//         attributs: {
+//             id: "id_projects",
+//         },
+//         innerHtml: "projects",
+//     },
+//     contact: {
+//         attributs: {
+//             id: "id_contact",
+//         },
+//         innerHtml: "contact",
+//     },
+// }
 
 export { 
     HEADER_META, 
     LOGO_IMAGE_META, 
     HEADER_BOTTOM_META,
-    HEADER_BOTTOM_ELEMENT_TEMPLATE,
-    HEADER_BOTTOM_ELEMENT_METADATA
+    // HEADER_BOTTOM_ELEMENT_TEMPLATE,
+    // HEADER_BOTTOM_ELEMENT_METADATA,
+    HEADER_BOTTOM_INTRODUCTION,
+    HEADER_BOTTOM_EXPERIENCE,
+    HEADER_BOTTOM_EDUCATION,
+    HEADER_BOTTOM_PROJECTS,
+    HEADER_BOTTOM_CONTACT,
   }
