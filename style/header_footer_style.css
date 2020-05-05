@@ -27,20 +27,23 @@ header {
 #header_bottom {
     display: flex;
     flex-direction: row;
+    padding-left: 15%;
+    padding-right: 15%;
+    
+}
+
+#header_bottom > a {
+    color: #edf6f9;
+    text-decoration: none;
     margin: auto;
-    padding: auto;
-}
-
-.header_bottom_link {
-    display: flex;
-    text-align: center;
-    padding: 2%;
+    padding: 3%;
     font-size: 2vw;
+    
 }
 
-.header_bottom_link:hover {
+#header_bottom > a:hover {
     background-color: #83c5be;
-    user-select: none;
+/*     user-select: none;  */
 }
 
 #footer {
@@ -63,7 +66,7 @@ header {
 .icons:hover {
     opacity: 0.6;
 }
-/*
+
 table {
     width: 100%;
     z-index: -1;
@@ -77,6 +80,10 @@ th, td {
   font-size: 15px;
 }
 
+td {
+  padding-top:6%;
+  padding-bottom:6%;
+}
 th {
     background: #edf6f9;
     color: #83c5be;
@@ -91,9 +98,9 @@ th {
 }
 
 .mid {
-    font-size: 3vw; 
+    font-size: 2vw; 
 }
 
 .table_title {
-    font-size: 4vw;
-}*/
+    font-size: 3vw;
+}
