@@ -9,6 +9,7 @@ import {
     COLOR_GREEN_LIGHT,  
     PATH_LOGO,
     IMG,
+    HEADER_FONT_SIZE,
 } from './000_consts.js';
 
 
@@ -89,7 +90,7 @@ var GSTYLE = {
     alignItems: "center",
     justifyContent: "center",
     userSelect: "none",
-    fontSize: "1vw"
+    fontSize: HEADER_FONT_SIZE,
 }
 
 const HEADER_BOTTOM_INTRODUCTION = {

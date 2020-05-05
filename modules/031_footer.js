@@ -15,7 +15,8 @@ import {
     DIV,
     ID_BODY,
     ID_FOOTER,
-    COLOR_GREEN_DARK
+    COLOR_GREEN_DARK,
+    FOOTER_IMG_SIZE,
 } from './000_consts.js'
 
 const STYLE_FOTTER = {
@@ -112,7 +113,7 @@ const FOOTER_A_LOCATION = {
 
 // footer img style
 const STYLE_FOOTER_IMG = {
-    width: "20%",
+    width: FOOTER_IMG_SIZE,
     display: "block" ,
     margin: "auto",  
 }

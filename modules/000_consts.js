@@ -11,6 +11,8 @@ const GITHUB_SRC = "https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-gi
 const LOCATION_HREF = "https://maps.app.goo.gl/FDFf9BeaQq8S4ekb8" 
 const LOCATION_SRC = "https://cdn4.iconfinder.com/data/icons/office-and-business-conceptual-flat/178/13-512.png" 
 const STYLESHEET_FONT_HREF = "https://fonts.googleapis.com/css?family=Comfortaa&display=swap";
+const HEADER_FONT_SIZE = "2vw";
+const FOOTER_IMG_SIZE = "25%";
 
 // COLORS
 const COLOR_GREEN_DARK= "#006D77";
@@ -77,5 +79,7 @@ export {
     TR,
     TH,
     TD,
-    INNER_HTML
+    INNER_HTML,
+    HEADER_FONT_SIZE,
+    FOOTER_IMG_SIZE,
 };
