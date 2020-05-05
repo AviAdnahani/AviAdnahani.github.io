@@ -24,6 +24,7 @@ const COLOR_ORANGE_LIGHT= "#FFDDD2";
 
 // TAGs
 const BODY = 'body';
+const MAIN = 'main';
 const DIV = 'div';
 const IMG = 'img';
 const A = 'a';
@@ -43,6 +44,7 @@ const ID_FOOTER = "id_footer";
 const ID_LOGO = "id_logo";
 const ID_MAIN_BODY = "id_main_body"
 const ID_PROJECT_TABLE = "id_projects_table";
+const ID_MAIN = "id_main";
 
 // propertys
 const INNER_HTML = 'innerHtml';
@@ -82,4 +84,7 @@ export {
     INNER_HTML,
     HEADER_FONT_SIZE,
     FOOTER_IMG_SIZE,
+    MAIN,
+    ID_MAIN,
+    COLOR_GREEN_WHITE
 };

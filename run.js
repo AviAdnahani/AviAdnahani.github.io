@@ -1,5 +1,4 @@
 import { 
-    // elementCreator,
     elementCreator_class 
 } from './controller/global.js';
 
@@ -12,8 +11,6 @@ import {
     HEADER_META, 
     LOGO_IMAGE_META, 
     HEADER_BOTTOM_META,
-    // HEADER_BOTTOM_ELEMENT_TEMPLATE,
-    // HEADER_BOTTOM_ELEMENT_METADATA,
     HEADER_BOTTOM_INTRODUCTION,
     HEADER_BOTTOM_EXPERIENCE,
     HEADER_BOTTOM_EDUCATION,
@@ -33,16 +30,16 @@ import {
     FOOTER_IMG_LINKDIN,
     FOOTER_IMG_GITHUB,
     FOOTER_IMG_LOCATION,
-    // FOOTER_A_METADATA,
-    // FOOTER_A_TEMPLATE,
-    // FOOTER_IMG_METADATA,
-    // FOOTER_IMG_TEMPLATE,
 } from './modules/031_footer.js';
 
 import {
     setBodyStyle,
     loadMain,
 } from './controller/main_window.js';
+
+import {
+    MAIN_MATA,
+} from  './modules/021_main.js';
 
 // create head
 if(!new elementCreator_class(STYLESHEET_FONT_META).creatElementP()) console.error('can not create: STYLESHEET_FONT_META');
@@ -65,10 +62,6 @@ if(!new elementCreator_class(FOOTER_IMG_LINKDIN).creatElementP()) console.log('c
 if(!new elementCreator_class(FOOTER_IMG_GITHUB).creatElementP()) console.log('can not create: FOOTER_IMG_GITHUB');
 if(!new elementCreator_class(FOOTER_IMG_LOCATION).creatElementP()) console.log('can not create: FOOTER_IMG_LOCATION');
 
-
-// if(!new elementCreator_class(FOOTER_A_TEMPLATE, FOOTER_A_METADATA).creatElementP()) console.log('can not create: FOOTER_A_METADATA');
-// if(!new elementCreator_class(FOOTER_IMG_TEMPLATE, FOOTER_IMG_METADATA).creatElementP()) console.log('can not create: FOOTER_IMG_METADATA');
-
 // create hader
 if(!new elementCreator_class(HEADER_META).creatElementP()) console.error('can not create: HEADER_META');
 if(!new elementCreator_class(LOGO_IMAGE_META).creatElementP()) console.error('can not create: LOGO_IMAGE_META');
@@ -80,6 +73,8 @@ if(!new elementCreator_class(HEADER_BOTTOM_PROJECTS).creatElementP()) console.lo
 if(!new elementCreator_class(HEADER_BOTTOM_CONTACT).creatElementP()) console.log('can not create: HEADER_BOTTOM_CONTACT');
 
 
+// MAIN_MATA
+if(!new elementCreator_class(MAIN_MATA).creatElementP()) console.log('can not create: MAIN_MATA');
 
 setBodyStyle(); // working
 
@@ -88,6 +83,6 @@ setBodyStyle(); // working
 // Done - elementCreator header bottom
 // Done - elementCreator header bottom divs ** NO EVENTS
 // elementCreator main
-// elementCreator footer
-// elementCreator footer icons
+// Done - elementCreator footer
+// Done - elementCreator footer icons
 

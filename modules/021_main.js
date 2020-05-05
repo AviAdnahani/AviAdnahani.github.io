@@ -2,40 +2,38 @@ import {
     ID_MAIN_BODY, 
     ID_PROJECT_TABLE,
     COLOR_GREEN_WHITE,
-    TR, TH, TD
-} from './000_consts.js'
+    TR, TH, TD,
+    MAIN, ID_MAIN, ID_BODY
+} from './000_consts.js';
 
-const main_table = {
-    element: TABLE,
-    perent_id: ID_MAIN_BODY,
-    attributs: {id: ID_PROJECT_TABLE},
-    style: {
-        width: "100%",
-        textAlign: "left",
-        position: "relative",
-        borderColleapse: "collapse",
-        borderSpacing: "0px",
-        zIndex: "-1",
-    },
+
+var H = document.getElementById("id_header");
+var F = document.getElementById("id_footer");
+
+function returnHeightH () {
+    return window.getComputedStyle(H).getPropertyValue("height");
 }
 
-const main_table_row_template = {
-    element: TR,
-    perent_id: ID_PROJECT_TABLE,
+function returnHeightF () {
+    return window.getComputedStyle(F).getPropertyValue("height");
 }
 
-const main_table_row_cell_th_template = {
-    element: TH,
-    style: {
-        backgroundColor: COLOR_GREEN_WHITE,
-        position: "sticky",
-    },
+const MAIN_MATA = {
+    element: MAIN,
+    perent_id: ID_BODY,
+    attributs: {id: ID_MAIN},
+    events: {
+        resize: {
+            style: { // is this workes? or to send a function?
+                marginTop: returnHeightH,
+                marginBottom: returnHeightF,
+            }
+        }
+    }
 }
 
-const main_table_row_cell_td_template = {
-    element: TD,
-    style: {
-        fontSize: "3vw",
-    },
+export {
+    MAIN_MATA,
+    returnHeightH,
+    returnHeightF
 }
-
