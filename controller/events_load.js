@@ -1,4 +1,4 @@
-import {ID_BODY} from '../modules/000_consts.js';
+import {ID_BODY} from '../model/000_consts.js';
 
 function setBodyStyle() {
     var body = document.getElementById(ID_BODY);

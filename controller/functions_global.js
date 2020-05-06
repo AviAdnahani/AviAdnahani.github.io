@@ -1,7 +1,13 @@
 import { 
     INNER_HTML, ID_BODY,
-} from '../modules/000_consts.js'
+} from '../model/000_consts.js'
 
+import {
+    getHeaderHeight,
+    getFooterHeight,
+} from './events_main.js';
+
+var WINDOW_EVENTS = ["resize"]
 var ELEMENT = "element";
 var ID = "id";
 var PERENT_ID = "perent_id";
@@ -9,11 +15,15 @@ var STYLE = "style";
 var ATTRIBUTS = "attributs";
 var EVENTS = "events";
 
-/**
- * tests missing: perant element existence
- */
-class elementCreator_class {
-
+class elementCreator {
+    /**
+     * ELEMENT CREATOR
+     * INPUT: dictionary object
+     * OUTPUT: new element
+     * 
+     * NEED TO ADD TESTS: validate input, write error logs
+     * 
+     */
     #new_element = null;
     #new_element_tag = null;
     #perant_id = null;
@@ -108,9 +118,16 @@ class elementCreator_class {
                 var new_style_dict = new_event_dict[STYLE];
                 for (const style_name in new_style_dict){
                     const style_value = new_style_dict[style_name];
-                    this.new_element.addEventListener(event_name, function(event) {
-                        event.target.style[style_name] = style_value;
-                    }, false);
+                    if (!WINDOW_EVENTS.includes(event_name)) {
+                        this.new_element.addEventListener(event_name, function(event) {
+                            if (style_value && {}.toString.call(style_value) === '[object Function]') {
+                                event.target.style[style_name] = style_value();
+                            }
+                            else {
+                                event.target.style[style_name] = style_value;
+                            }
+                        }, false);
+                    }
                 }
             }
         }
@@ -120,7 +137,7 @@ class elementCreator_class {
         this.new_element.innerHTML = this.SOURCE_DICT[INNER_HTML];
     }
 
-    creatElementP() {
+    run() {
         let status;
         status = this.setPrivite();
         if(status) {
@@ -134,22 +151,83 @@ class elementCreator_class {
         console.error('DID NOT SET ATTRIBUTES!! - the status is false');
         return false;
     }
+}
 
-    addMetaDataToElement() {
-        for (const temp in this.TEMPLATE) {
-            let new_element_template = this.new_element.cloneNode(true);
-            let temp_dict = this.TEMPLATE[temp];
-            if(this.testExistence(PERENT_ID, temp_dict)) this.perant_id = temp_dict[PERENT_ID];
-            if(this.testExistence(ATTRIBUTS, temp_dict)) this.setElementAttributes(temp_dict, new_element_template);
-            if(this.testExistence(STYLE, temp_dict)) this.setStyle(temp_dict, new_element_template);
-            // if(this.testExistence(EVENTS, temp_dict)) this.setEvents(temp_dict, new_element_template);
-            if(this.testExistence(INNER_HTML, temp_dict)) this.setInnerHtml(temp_dict, new_element_template);
-            this.appendNewElementToPerant(new_element_template);
+class eventCreator {
+    /**
+     * gets element and style dict
+     */
+    
+}
+
+class styleCreator {
+    /**
+     * gets element and event dict
+     */
+}
+
+class windowEventCreator {
+    #element_dict
+    #element_id
+    #window_events_list
+
+    constructor(element_dict) {
+        this.element_dict = element_dict;
+        this.element_id = this.element_dict[ATTRIBUTS][ID];
+        this.window_events_list = [];
+    }
+
+    createStyleEvent(window_event_name, style_name, style_value) {
+        var element = document.getElementById(this.element_id);
+        window.addEventListener(window_event_name, function(){
+            if (style_value && {}.toString.call(style_value) === '[object Function]') {
+                element.style[style_name] = style_value();
+            }
+            else {
+                element.style[style_name] = style_value;
+            }
+        }, false);
+    }
+
+    searchWindowEvents() {
+        for (const event in this.element_dict[EVENTS]) {
+            if (WINDOW_EVENTS.includes(event)) {
+                this.window_events_list.push(event);
+            }
         }
-        return true;
+    }
+
+    run() {
+        this.searchWindowEvents();
+        for (const event of this.window_events_list) {
+            var event_type = this.element_dict[EVENTS][event];
+            for (const type in event_type) {
+                if (type == STYLE){
+                    var style_dict = event_type[type];
+                    for(const style_name in style_dict){
+                        var style_value = style_dict[style_name];
+                        this.createStyleEvent(event, style_name, style_value);
+                    }
+                }
+            }
+        }
     }
 }
 
+function getElementHeight(element) {
+    if (element) {
+        var height = window.getComputedStyle(element).getPropertyValue("height");
+        if (height) {
+            return height;
+        }
+        console.error(`${element.id}: cannot get the element height`);
+    }
+    console.error('invalid input')
+    return null
+}
+
 export {
-    elementCreator_class
+    elementCreator,
+    getElementHeight,
+    windowEventCreator,
 };

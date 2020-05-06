@@ -17,7 +17,7 @@ import {
     ID_FOOTER,
     COLOR_GREEN_DARK,
     FOOTER_IMG_SIZE,
-} from './000_consts.js'
+} from '../model/000_consts.js'
 
 const STYLE_FOTTER = {
     boxShadow:  "0px 0px 10px 0px black",

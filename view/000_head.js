@@ -1,6 +1,6 @@
 import { 
     STYLESHEET_FONT_HREF 
-} from './000_consts.js'
+} from '../model/000_consts.js'
 
 const STYLESHEET_FONT_META = {
     element: "link", 

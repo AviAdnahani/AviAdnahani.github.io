@@ -1,11 +1,12 @@
 import { 
-    elementCreator_class 
-} from './controller/global.js';
+    elementCreator,
+    windowEventCreator 
+} from './controller/functions_global.js';
 
 import { 
     STYLESHEET_FONT_META, 
     VIEWPORT_META 
-} from './modules/000_head.js';
+} from './view/000_head.js';
 
 import { 
     HEADER_META, 
@@ -16,7 +17,7 @@ import {
     HEADER_BOTTOM_EDUCATION,
     HEADER_BOTTOM_PROJECTS,
     HEADER_BOTTOM_CONTACT,
-} from './modules/011_header.js';
+} from './view/011_header.js';
 
 import {
     FOOTER_META,
@@ -30,51 +31,54 @@ import {
     FOOTER_IMG_LINKDIN,
     FOOTER_IMG_GITHUB,
     FOOTER_IMG_LOCATION,
-} from './modules/031_footer.js';
+} from './view/031_footer.js';
 
 import {
     setBodyStyle,
     loadMain,
-} from './controller/main_window.js';
+} from './controller/events_load.js';
 
 import {
     MAIN_MATA,
-} from  './modules/021_main.js';
+} from  './view/021_main.js';
 
 // create head
-if(!new elementCreator_class(STYLESHEET_FONT_META).creatElementP()) console.error('can not create: STYLESHEET_FONT_META');
-if(!new elementCreator_class(VIEWPORT_META).creatElementP()) console.error('can not create: VIEWPORT_META');
+if(!new elementCreator(STYLESHEET_FONT_META).run()) console.error('can not create: STYLESHEET_FONT_META');
+if(!new elementCreator(VIEWPORT_META).run()) console.error('can not create: VIEWPORT_META');
 
 // create footer
-if(!new elementCreator_class(FOOTER_META).creatElementP()) console.log('can not create: FOOTER_META');
+if(!new elementCreator(FOOTER_META).run()) console.log('can not create: FOOTER_META');
 
 // create footer anchore
-if(!new elementCreator_class(FOOTER_A_WHATSAPP).creatElementP()) console.log('can not create: FOOTER_A_WHATSAPP');
-if(!new elementCreator_class(FOOTER_A_EMAIL).creatElementP()) console.log('can not create: FOOTER_A_EMAIL');
-if(!new elementCreator_class(FOOTER_A_LINKDIN).creatElementP()) console.log('can not create: FOOTER_A_LINKDIN');
-if(!new elementCreator_class(FOOTER_A_GITHUB).creatElementP()) console.log('can not create: FOOTER_A_GITHUB');
-if(!new elementCreator_class(FOOTER_A_LOCATION).creatElementP()) console.log('can not create: FOOTER_A_LOCATION');
+if(!new elementCreator(FOOTER_A_WHATSAPP).run()) console.log('can not create: FOOTER_A_WHATSAPP');
+if(!new elementCreator(FOOTER_A_EMAIL).run()) console.log('can not create: FOOTER_A_EMAIL');
+if(!new elementCreator(FOOTER_A_LINKDIN).run()) console.log('can not create: FOOTER_A_LINKDIN');
+if(!new elementCreator(FOOTER_A_GITHUB).run()) console.log('can not create: FOOTER_A_GITHUB');
+if(!new elementCreator(FOOTER_A_LOCATION).run()) console.log('can not create: FOOTER_A_LOCATION');
 
 // create footer img
-if(!new elementCreator_class(FOOTER_IMG_WHATSAPP).creatElementP()) console.log('can not create: FOOTER_IMG_WHATSAPP');
-if(!new elementCreator_class(FOOTER_IMG_EMAIL).creatElementP()) console.log('can not create: FOOTER_IMG_EMAIL');
-if(!new elementCreator_class(FOOTER_IMG_LINKDIN).creatElementP()) console.log('can not create: FOOTER_IMG_LINKDIN');
-if(!new elementCreator_class(FOOTER_IMG_GITHUB).creatElementP()) console.log('can not create: FOOTER_IMG_GITHUB');
-if(!new elementCreator_class(FOOTER_IMG_LOCATION).creatElementP()) console.log('can not create: FOOTER_IMG_LOCATION');
+if(!new elementCreator(FOOTER_IMG_WHATSAPP).run()) console.log('can not create: FOOTER_IMG_WHATSAPP');
+if(!new elementCreator(FOOTER_IMG_EMAIL).run()) console.log('can not create: FOOTER_IMG_EMAIL');
+if(!new elementCreator(FOOTER_IMG_LINKDIN).run()) console.log('can not create: FOOTER_IMG_LINKDIN');
+if(!new elementCreator(FOOTER_IMG_GITHUB).run()) console.log('can not create: FOOTER_IMG_GITHUB');
+if(!new elementCreator(FOOTER_IMG_LOCATION).run()) console.log('can not create: FOOTER_IMG_LOCATION');
 
 // create hader
-if(!new elementCreator_class(HEADER_META).creatElementP()) console.error('can not create: HEADER_META');
-if(!new elementCreator_class(LOGO_IMAGE_META).creatElementP()) console.error('can not create: LOGO_IMAGE_META');
-if(!new elementCreator_class(HEADER_BOTTOM_META).creatElementP()) console.error('can not create: HEADER_BOTTOM_META');
-if(!new elementCreator_class(HEADER_BOTTOM_INTRODUCTION).creatElementP()) console.log('can not create: HEADER_BOTTOM_INTRODUCTION');
-if(!new elementCreator_class(HEADER_BOTTOM_EXPERIENCE).creatElementP()) console.log('can not create: HEADER_BOTTOM_EXPERIENCE');
-if(!new elementCreator_class(HEADER_BOTTOM_EDUCATION).creatElementP()) console.log('can not create: HEADER_BOTTOM_EDUCATION');
-if(!new elementCreator_class(HEADER_BOTTOM_PROJECTS).creatElementP()) console.log('can not create: HEADER_BOTTOM_PROJECTS');
-if(!new elementCreator_class(HEADER_BOTTOM_CONTACT).creatElementP()) console.log('can not create: HEADER_BOTTOM_CONTACT');
+if(!new elementCreator(HEADER_META).run()) console.error('can not create: HEADER_META');
+if(!new elementCreator(LOGO_IMAGE_META).run()) console.error('can not create: LOGO_IMAGE_META');
+if(!new elementCreator(HEADER_BOTTOM_META).run()) console.error('can not create: HEADER_BOTTOM_META');
+if(!new elementCreator(HEADER_BOTTOM_INTRODUCTION).run()) console.log('can not create: HEADER_BOTTOM_INTRODUCTION');
+if(!new elementCreator(HEADER_BOTTOM_EXPERIENCE).run()) console.log('can not create: HEADER_BOTTOM_EXPERIENCE');
+if(!new elementCreator(HEADER_BOTTOM_EDUCATION).run()) console.log('can not create: HEADER_BOTTOM_EDUCATION');
+if(!new elementCreator(HEADER_BOTTOM_PROJECTS).run()) console.log('can not create: HEADER_BOTTOM_PROJECTS');
+if(!new elementCreator(HEADER_BOTTOM_CONTACT).run()) console.log('can not create: HEADER_BOTTOM_CONTACT');
 
 
 // MAIN_MATA
-if(!new elementCreator_class(MAIN_MATA).creatElementP()) console.log('can not create: MAIN_MATA');
+if(!new elementCreator(MAIN_MATA).run()) console.log('can not create: MAIN_MATA');
+var e = new windowEventCreator(MAIN_MATA);
+e.run();
+
 
 setBodyStyle(); // working
 

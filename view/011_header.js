@@ -10,7 +10,7 @@ import {
     PATH_LOGO,
     IMG,
     HEADER_FONT_SIZE,
-} from './000_consts.js';
+} from '../model/000_consts.js';
 
 
 const HEADER_META = {
@@ -39,7 +39,6 @@ const LOGO_IMAGE_META = {
     },
     style: {
         display: "block",
-        // margin: "auto",
         padding: "1%",
         width: "10%",
         height: "auto",
@@ -53,7 +52,7 @@ const HEADER_BOTTOM_META = {
     style: {
         display: "flex",
         flexDirection: "row",
-        width: "80%",
+        width: "90%",
         textTransform: "capitalize",
         margin: "auto",
         marginTop: "0",
@@ -61,8 +60,6 @@ const HEADER_BOTTOM_META = {
         padding: "auto",
     }
 };
-
-
 
 var INTRODUCTION = 'introduction';
 var EXPERIENCE = "experience";
@@ -147,7 +144,6 @@ const HEADER_BOTTOM_CONTACT = {
     style: GSTYLE,
     events: GEVENT,
 }
-
 
 export { 
     HEADER_META, 

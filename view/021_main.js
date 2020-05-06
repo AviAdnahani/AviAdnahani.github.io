@@ -4,7 +4,12 @@ import {
     COLOR_GREEN_WHITE,
     TR, TH, TD,
     MAIN, ID_MAIN, ID_BODY
-} from './000_consts.js';
+} from '../model/000_consts.js';
+
+import {
+    getHeaderHeight,
+    getFooterHeight,
+} from '../controller/events_main.js';
 
 
 var H = document.getElementById("id_header");
@@ -22,14 +27,19 @@ const MAIN_MATA = {
     element: MAIN,
     perent_id: ID_BODY,
     attributs: {id: ID_MAIN},
+    innerHtml: 'testing1<br/>testing2<br/>testing3<br/>testing4<br/>testing5<br/>testing6<br/>',
     events: {
         resize: {
-            style: { // is this workes? or to send a function?
-                marginTop: returnHeightH,
-                marginBottom: returnHeightF,
+            style: { 
+                marginTop: getHeaderHeight,
+                marginBottom: getFooterHeight,
             }
-        }
-    }
+        },
+    },
+    style: { 
+        marginTop: getHeaderHeight(),
+        marginBottom: getFooterHeight(),
+    },
 }
 
 export {
