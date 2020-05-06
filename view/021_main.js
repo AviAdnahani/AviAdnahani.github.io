@@ -12,16 +12,9 @@ import {
 } from '../controller/events_main.js';
 
 
-var H = document.getElementById("id_header");
-var F = document.getElementById("id_footer");
-
-function returnHeightH () {
-    return window.getComputedStyle(H).getPropertyValue("height");
-}
-
-function returnHeightF () {
-    return window.getComputedStyle(F).getPropertyValue("height");
-}
+import {
+    loadstaticHtmltoMain
+} from '../controller/functions_global.js'
 
 const MAIN_MATA = {
     element: MAIN,
@@ -35,15 +28,24 @@ const MAIN_MATA = {
                 marginBottom: getFooterHeight,
             }
         },
+        load: {
+            style: { 
+                marginTop: getHeaderHeight,
+                marginBottom: getFooterHeight,
+            }
+        },
+        click: {
+            functions: [
+                loadstaticHtmltoMain,
+            ]
+        }
     },
     style: { 
-        marginTop: getHeaderHeight(),
-        marginBottom: getFooterHeight(),
+        marginTop: getHeaderHeight,
+        marginBottom: getFooterHeight,
     },
 }
 
 export {
     MAIN_MATA,
-    returnHeightH,
-    returnHeightF
 }

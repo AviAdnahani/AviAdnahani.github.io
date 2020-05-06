@@ -12,6 +12,10 @@ import {
     HEADER_FONT_SIZE,
 } from '../model/000_consts.js';
 
+import {
+    loadstaticHtmltoMain
+} from '../controller/functions_global.js';
+
 
 const HEADER_META = {
     element: HEADER,
@@ -79,6 +83,11 @@ var GEVENT = {
             background: COLOR_GREEN_DARK,
         }
     },
+    click: {
+        functions: [
+            loadstaticHtmltoMain,
+        ]
+    }
 }
 
 var GSTYLE = {
