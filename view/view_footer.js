@@ -47,7 +47,9 @@ const FOOTER_META = {
 }
 
 const STYLE_FOOTER_A = {
+    display: "flex",
     margin: "auto",
+    flexWrap: "wrap",
     padding: "1%",
 }
 
@@ -113,7 +115,8 @@ const FOOTER_A_LOCATION = {
 
 // footer img style
 const STYLE_FOOTER_IMG = {
-    width: FOOTER_IMG_SIZE,
+    // width: FOOTER_IMG_SIZE,
+    height: "5vh",
     display: "block" ,
     margin: "auto",  
 }

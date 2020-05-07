@@ -6,7 +6,7 @@ import {
 import { 
     STYLESHEET_FONT_META, 
     VIEWPORT_META 
-} from './view/000_head.js';
+} from './view/view_head.js';
 
 import { 
     HEADER_META, 
@@ -17,7 +17,7 @@ import {
     HEADER_BOTTOM_EDUCATION,
     HEADER_BOTTOM_PROJECTS,
     HEADER_BOTTOM_CONTACT,
-} from './view/011_header.js';
+} from './view/view_header.js';
 
 import {
     FOOTER_META,
@@ -31,7 +31,7 @@ import {
     FOOTER_IMG_LINKDIN,
     FOOTER_IMG_GITHUB,
     FOOTER_IMG_LOCATION,
-} from './view/031_footer.js';
+} from './view/view_footer.js';
 
 import {
     setBodyStyle,
@@ -40,7 +40,7 @@ import {
 
 import {
     MAIN_MATA,
-} from  './view/021_main.js';
+} from  './view/view_main.js';
 
 // create head
 if(!new elementCreator(STYLESHEET_FONT_META).run()) console.error('can not create: STYLESHEET_FONT_META');

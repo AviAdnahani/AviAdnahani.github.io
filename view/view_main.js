@@ -34,11 +34,6 @@ const MAIN_MATA = {
                 marginBottom: getFooterHeight,
             }
         },
-        click: {
-            functions: [
-                loadstaticHtmltoMain,
-            ]
-        }
     },
     style: { 
         marginTop: getHeaderHeight,

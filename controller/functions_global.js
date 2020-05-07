@@ -260,7 +260,15 @@ function getElementHeight(element) {
     return null
 }
 
+function getImageSize(origin){
+    var window_width = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+    var window_height = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if (origin) {
+        
+    }
 
+
+}
 
 export {
     elementCreator,

@@ -44,8 +44,9 @@ const LOGO_IMAGE_META = {
     style: {
         display: "block",
         padding: "1%",
-        width: "10%",
-        height: "auto",
+        // width: "20%",
+        height: "5vh",
+        // height: "5px",
     }
 };
 
@@ -55,13 +56,16 @@ const HEADER_BOTTOM_META = {
     attributs: {id: ID_HEADER_BOTTOM},
     style: {
         display: "flex",
-        flexDirection: "row",
-        width: "90%",
+        // flexDirection: "row",
+        flexWrap: "wrap",
+        // width: "90%",
         textTransform: "capitalize",
         margin: "auto",
         marginTop: "0",
         marginBottom: "0",
         padding: "auto",
+//         paddingLeft: "2%",
+//         paddingRight: "2%",
     }
 };
 
@@ -92,7 +96,8 @@ var GEVENT = {
 
 var GSTYLE = {
     display: "flex",
-    width: "100%",
+    padding: "1vw",
+    // width: "100%",
     alignItems: "center",
     justifyContent: "center",
     userSelect: "none",
