@@ -86,6 +86,14 @@ const SOCIAL_MADIA_DATA = {
     },
 }
 
+const HEADER_BUTTONS_TXT = {
+    INTRODUCTION: "introduction",
+    EXPERIENCE: "experience",
+    EDUCATION: "education",
+    PROJECTS: "projects",
+    CONTACT: "contact",
+}
+
 // this project object propertice
 const PROPERTICE = {
     ELEMENT: "ELEMENT",
@@ -98,6 +106,7 @@ const PROPERTICE = {
 }
 
 export { 
+    HEADER_BUTTONS_TXT,
     SOCIAL_MADIA_DATA,
     URL_INTERNAL,
     URL_EXTERNAL,

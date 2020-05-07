@@ -24,7 +24,9 @@ const VIEWPORT_META = {
     }
 }
 
-export { 
+const SECTION_HEAD_DATA = [
     STYLESHEET_FONT_META, 
     VIEWPORT_META 
-};
+]
+
+export { SECTION_HEAD_DATA };

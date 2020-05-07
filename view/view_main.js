@@ -1,17 +1,5 @@
-import {
-    TAG,
-    ID,
-    PROPERTICE,
-} from '../model/000_consts.js';
-
-import {
-    getHeaderHeight,
-    getFooterHeight,
-} from '../controller/events_main.js';
-
-// import {
-//     loadstaticHtmltoMain
-// } from '../controller/functions_global.js'
+import { TAG, ID, PROPERTICE } from '../model/000_consts.js';
+import { getHeaderHeight, getFooterHeight } from '../controller/events_main.js';
 
 const MAIN_MATA = {
     [PROPERTICE.ELEMENT]: TAG.MAIN,
@@ -38,6 +26,8 @@ const MAIN_MATA = {
     },
 }
 
-export {
+const SECTION_MAIN_DATA = [
     MAIN_MATA,
-}
+];
+
+export { SECTION_MAIN_DATA }

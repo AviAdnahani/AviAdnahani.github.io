@@ -1,14 +1,7 @@
-import { 
-    ID, PROPERTICE
-} from '../model/000_consts.js'
-
-import {
-    getHeaderHeight,
-    getFooterHeight,
-} from './events_main.js';
+import { ID, PROPERTICE} from '../model/000_consts.js'
+import { getHeaderHeight, getFooterHeight } from './events_main.js'; // DON'T DELETE!!! used in run time (set event)
 
 var WINDOW_EVENTS = ["resize", "load"];
-var FUNCTION_EVENTS = ["click"];
 var INNER_HTML = PROPERTICE.INNER_HTML;
 var ELEMENT = PROPERTICE.ELEMENT;
 var _ID = "id";
@@ -60,9 +53,8 @@ class elementCreator {
     #events_dict = null;
     #inner_html = null;
 
-    constructor(source, metadata=null) {
-        this.SOURCE_DICT = source;
-        this.TEMPLATE = metadata;
+    constructor(source_dict) {
+        this.SOURCE_DICT = source_dict;
     }
 
     testExistence(KEY, DICT_INPUT=null){
@@ -134,39 +126,13 @@ class elementCreator {
     }
 
     setStyle() {
-        for (const new_style in this.style_dict) {
-            this.new_element.style[new_style] = this.style_dict[new_style];
-        }
+        var s = new styleCreator(this.new_element, this.style_dict)
+        this.new_element = s.run();
     }
 
     setEvents() {
-        for (const event_name in this.events_dict) {    
-            var new_event_dict = this.events_dict[event_name];
-            if (this.testExistence(STYLE, new_event_dict)){
-                var new_style_dict = new_event_dict[STYLE];
-                for (const style_name in new_style_dict){
-                    const style_value = new_style_dict[style_name];
-                    if (!WINDOW_EVENTS.includes(event_name)) {
-                        this.new_element.addEventListener(event_name, function(event) {
-                            if (style_value && {}.toString.call(style_value) === '[object Function]') {
-                                event.target.style[style_name] = style_value();
-                            }
-                            else {
-                                event.target.style[style_name] = style_value;
-                            }
-                        }, false);
-                    }
-                }
-            }
-            if (this.testExistence(FUNCTIONS, new_event_dict)){
-                var func_list = new_event_dict[FUNCTIONS];
-                for (const func of func_list) {
-                    this.new_element.addEventListener(event_name, function() {
-                        func(event.target);             
-                    }, false);
-                }
-            }
-        }
+        var e = new eventCreator(this.new_element, this.events_dict)
+        this.new_element = e.run();
     }
 
     setInnerHtml() {
@@ -193,13 +159,82 @@ class eventCreator {
     /**
      * gets element and style dict
      */
-    
+    #ELEMENT = null;
+    #EVENT_DICT = null;
+    constructor(element, event_dict) {
+        this.ELEMENT = element;
+        this.EVENT_DICT = event_dict;
+    }
+
+    testExistence(KEY, DICT_INPUT=null){
+        let DICT;
+        if (!DICT_INPUT) {
+            DICT = this.SOURCE_DICT;
+        }
+        else {
+            DICT = DICT_INPUT;
+        }
+        return DICT.hasOwnProperty(KEY);
+    }
+
+    setEvents() {
+        for (const event_name in this.EVENT_DICT) {    
+            var new_event_dict = this.EVENT_DICT[event_name];
+            if (this.testExistence(STYLE, new_event_dict) & !WINDOW_EVENTS.includes(event_name)){
+                var new_style_dict = new_event_dict[STYLE];
+                for (const style_name in new_style_dict){
+                    const style_value = new_style_dict[style_name];
+                        this.ELEMENT.addEventListener(event_name, function(event) {
+                            if (style_value && {}.toString.call(style_value) === '[object Function]') {
+                                event.target.style[style_name] = style_value();
+                            }
+                            else {
+                                event.target.style[style_name] = style_value;
+                            }
+                        }, false);
+                }
+            }
+            if (this.testExistence(FUNCTIONS, new_event_dict)){
+                var func_list = new_event_dict[FUNCTIONS];
+                for (const func of func_list) {
+                    this.ELEMENT.addEventListener(event_name, function() {
+                        func(event.target);             
+                    }, false);
+                }
+            }
+        }
+    }
+
+    run(){
+        this.setEvents();
+        return this.ELEMENT;
+    }
+
 }
 
 class styleCreator {
     /**
      * gets element and event dict
      */
+    #ELEMENT = null;
+    #STYLE_DICT = null;
+    constructor(element, style_dict) {
+        this.ELEMENT = element;
+        this.STYLE_DICT = style_dict;
+    }
+
+    setStyle() {
+        for (const style_name in this.STYLE_DICT) {
+            const style_value = this.STYLE_DICT[style_name];
+            this.ELEMENT.style[style_name] = style_value;
+        }
+    }
+
+    run(){
+        this.setStyle();
+        return this.ELEMENT;
+    }
+
 }
 
 class windowEventCreator {
@@ -262,9 +297,28 @@ function getElementHeight(element) {
     return null
 }
 
+function runElementCreator(ELEMENTS_ARRAY) {
+    for (const DICT of ELEMENTS_ARRAY) {
+        const ELEMENT = new elementCreator(DICT);
+        if (ELEMENT){
+            ELEMENT.run(); // create element
+            const EVENT = new windowEventCreator(DICT);
+            EVENT.run(); // create window event (if exists)
+        }
+        else {
+            console.log(`could not create ${DICT} element`)
+        }   
+    }
+    for (const DICT of ELEMENTS_ARRAY) {
+        const EVENT = new windowEventCreator(DICT);
+        EVENT.run();
+    }
+}
+
 export {
     elementCreator,
     getElementHeight,
     windowEventCreator,
     loadstaticHtmltoMain,
+    runElementCreator
 };
