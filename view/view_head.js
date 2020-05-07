@@ -1,21 +1,23 @@
 import { 
-    STYLESHEET_FONT_HREF 
+    TAG,
+    URL_EXTERNAL,
+    PROPERTICE 
 } from '../model/000_consts.js'
 
 const STYLESHEET_FONT_META = {
-    element: "link", 
-    perent_id: "id_head",
-    attributs: {
+    [PROPERTICE.ELEMENT]: TAG.LINK, 
+    [PROPERTICE.PERENT_ID]: "id_head",
+    [PROPERTICE.ATTRIBUTS]: {
         id: "id_font_link",
         rel: "stylesheet",
-        href: STYLESHEET_FONT_HREF, 
+        href: URL_EXTERNAL.STYLESHEET_FONT_HREF, 
     },
 }
 
 const VIEWPORT_META = {
-    element: "meta",
-    perent_id: "id_head",
-    attributs: {
+    [PROPERTICE.ELEMENT]: TAG.META,
+    [PROPERTICE.PERENT_ID]: "id_head",
+    [PROPERTICE.ATTRIBUTS]: {
         id: "id_viewport",
         name: "viewport", 
         content: "width=device-width, initial-scale=1.0"

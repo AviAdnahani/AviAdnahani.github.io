@@ -1,7 +1,7 @@
-import {ID_BODY} from '../model/000_consts.js';
+import {ID} from '../model/000_consts.js';
 
 function setBodyStyle() {
-    var body = document.getElementById(ID_BODY);
+    var body = document.getElementById(ID.BODY);
     body.style.margin = 0;
     body.style.padding = 0;
     body.style.fontFamily = "Comfortaa, cursive";

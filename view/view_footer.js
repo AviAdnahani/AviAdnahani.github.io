@@ -1,23 +1,18 @@
 import {
-    WHATSAPP_HREF,
-    WHATSAPP_SRC,
-    EMAIL_HREF,
-    EMAIL_SRC,
-    LINKDIN_HREF,
-    LINKDIN_SRC,
-    GITHUB_HREF,
-    GITHUB_SRC,
-    LOCATION_HREF,
-    LOCATION_SRC,
-    IMG,
-    A,
-    FOOTER,
-    DIV,
-    ID_BODY,
-    ID_FOOTER,
-    COLOR_GREEN_DARK,
-    FOOTER_IMG_SIZE,
+    TAG,
+    ID,
+    WEBSITE_COLORS,
+    SOCIAL_MADIA_DATA,
+    PROPERTICE,
 } from '../model/000_consts.js'
+
+
+const WHATSAPP_DATA = SOCIAL_MADIA_DATA.WHATSAPP;
+const EMAIL_DATA = SOCIAL_MADIA_DATA.EMAIL;
+const LINKDIN_DATA = SOCIAL_MADIA_DATA.LINKDIN;
+const GITHUB_DATA = SOCIAL_MADIA_DATA.GITHUB;
+const LOCATION_DATA = SOCIAL_MADIA_DATA.LOCATION;
+
 
 const STYLE_FOTTER = {
     boxShadow:  "0px 0px 10px 0px black",
@@ -25,25 +20,9 @@ const STYLE_FOTTER = {
     position:  "fixed",
     display:  "flex",
     color:  "white",
-    backgroundColor:  COLOR_GREEN_DARK,
+    backgroundColor: WEBSITE_COLORS.GREEN_DARK,
     bottom: "0",
     justifyContent: "space-evenly", 
-}
-
-const WHATSAPP = "whatsapp";
-const EMAIL = "email";
-const LINKDIN = "linkdin";
-const GITHUB = "github";
-const LOCATION = "location";
-
-// footer
-const FOOTER_META = {
-    element: FOOTER,
-    perent_id: ID_BODY,
-    attributs: {
-        id: ID_FOOTER,
-    },
-    style: STYLE_FOTTER,
 }
 
 const STYLE_FOOTER_A = {
@@ -51,66 +30,6 @@ const STYLE_FOOTER_A = {
     margin: "auto",
     flexWrap: "wrap",
     padding: "1%",
-}
-
-// footer links template
-const FOOTER_A_WHATSAPP = {
-    element: A,
-    perent_id: ID_FOOTER,
-    attributs: {
-        target: "_blank",
-        id: "id_a_" + WHATSAPP,
-        href: WHATSAPP_HREF
-    },
-    style: STYLE_FOOTER_A
-}
-
-// footer links template
-const FOOTER_A_EMAIL = {
-    element: A,
-    perent_id: ID_FOOTER,
-    attributs: {
-        target: "_blank",
-        id: "id_a_"+EMAIL,
-        href: EMAIL_HREF,
-    },
-    style: STYLE_FOOTER_A
-}
-
-// footer links template
-const FOOTER_A_LINKDIN = {
-    element: A,
-    perent_id: ID_FOOTER,
-    attributs: {
-        target: "_blank",
-        id: "id_a_"+LINKDIN,
-        href: LINKDIN_HREF,
-    },
-    style: STYLE_FOOTER_A
-}
-
-// footer links template
-const FOOTER_A_GITHUB = {
-    element: A,
-    perent_id: ID_FOOTER,
-    attributs: {
-        target: "_blank",
-        id: "id_a_" + GITHUB,
-        href: GITHUB_HREF,
-    },
-    style: STYLE_FOOTER_A
-}
-
-// footer links template
-const FOOTER_A_LOCATION = {
-    element: A,
-    perent_id: ID_FOOTER,
-    attributs: {
-        target: "_blank",
-        id: "id_a_" + LOCATION,
-        href: LOCATION_HREF,
-    },
-    style: STYLE_FOOTER_A
 }
 
 // footer img style
@@ -124,77 +43,165 @@ const STYLE_FOOTER_IMG = {
 // footer img events
 const EVENTS_FOOTER_IMA = {
     mouseenter: {
-        style: {
+        [PROPERTICE.STYLE]: {
             opacity: "0.6",
         },
     },
     mouseleave: {
-        style: {
+        [PROPERTICE.STYLE]: {
             opacity: "1",
         }
     },
 }
 
+// footer
+const FOOTER_META = {
+    [PROPERTICE.ELEMENT]: TAG.FOOTER,
+    [PROPERTICE.PERENT_ID]: ID.BODY,
+    [PROPERTICE.ATTRIBUTS]: {
+        id: ID.FOOTER,
+    },
+    [PROPERTICE.STYLE]: STYLE_FOTTER,
+}
+
+// footer links template
+const FOOTER_A_WHATSAPP = {
+    [PROPERTICE.ELEMENT]: TAG.A,
+    [PROPERTICE.PERENT_ID]: ID.FOOTER,
+    [PROPERTICE.ATTRIBUTS]: {
+        target: "_blank",
+        id: "id_a_" + WHATSAPP_DATA.NAME,
+        href: WHATSAPP_DATA.HERF
+    },
+    [PROPERTICE.STYLE]: STYLE_FOOTER_A
+}
+
+// footer links template
+const FOOTER_A_EMAIL = {
+    [PROPERTICE.ELEMENT]: TAG.A,
+    [PROPERTICE.PERENT_ID]: ID.FOOTER,
+    [PROPERTICE.ATTRIBUTS]: {
+        target: "_blank",
+        id: "id_a_"+EMAIL_DATA.NAME,
+        href: EMAIL_DATA.HERF,
+    },
+    [PROPERTICE.STYLE]: STYLE_FOOTER_A
+}
+
+// footer links template
+const FOOTER_A_LINKDIN = {
+    [PROPERTICE.ELEMENT]: TAG.A,
+    [PROPERTICE.PERENT_ID]: ID.FOOTER,
+    [PROPERTICE.ATTRIBUTS]: {
+        target: "_blank",
+        id: "id_a_"+LINKDIN_DATA.NAME,
+        href: LINKDIN_DATA.HERF,
+    },
+    [PROPERTICE.STYLE]: STYLE_FOOTER_A
+}
+
+// footer links template
+const FOOTER_A_GITHUB = {
+    [PROPERTICE.ELEMENT]: TAG.A,
+    [PROPERTICE.PERENT_ID]: ID.FOOTER,
+    [PROPERTICE.ATTRIBUTS]: {
+        target: "_blank",
+        id: "id_a_" + GITHUB_DATA.NAME,
+        href: GITHUB_DATA.HERF,
+    },
+    [PROPERTICE.STYLE]: STYLE_FOOTER_A
+}
+
+// footer links template
+const FOOTER_A_LOCATION = {
+    [PROPERTICE.ELEMENT]: TAG.A,
+    [PROPERTICE.PERENT_ID]: ID.FOOTER,
+    [PROPERTICE.ATTRIBUTS]: {
+        target: "_blank",
+        id: "id_a_" + LOCATION_DATA.NAME,
+        href: LOCATION_DATA.HERF,
+    },
+    [PROPERTICE.STYLE]: STYLE_FOOTER_A
+}
+
 // footer images template
 const FOOTER_IMG_WHATSAPP = {
-    element: IMG,
-    perent_id: "id_a_"+WHATSAPP,
-    attributs: {
-        id: "id_img_"+WHATSAPP,
-        title: WHATSAPP,
-        src: WHATSAPP_SRC,
+    [PROPERTICE.ELEMENT]: TAG.IMG,
+    [PROPERTICE.PERENT_ID]: "id_a_"+WHATSAPP_DATA.NAME,
+    [PROPERTICE.ATTRIBUTS]: {
+        id: "id_img_"+WHATSAPP_DATA.NAME,
+        title: WHATSAPP_DATA.NAME,
+        src: WHATSAPP_DATA.SRC,
     },
-    style: STYLE_FOOTER_IMG,
-    events: EVENTS_FOOTER_IMA,
+    [PROPERTICE.STYLE]: STYLE_FOOTER_IMG,
+    [PROPERTICE.EVENTS]: EVENTS_FOOTER_IMA,
 }
+
 // footer images template
 const FOOTER_IMG_EMAIL = {
-    element: IMG,
-    perent_id: "id_a_"+EMAIL,
-    attributs: {
-        id: "id_img_"+EMAIL,
-        title: EMAIL,
-        src: EMAIL_SRC,
+    [PROPERTICE.ELEMENT]: TAG.IMG,
+    [PROPERTICE.PERENT_ID]: "id_a_"+EMAIL_DATA.NAME,
+    [PROPERTICE.ATTRIBUTS]: {
+        id: "id_img_"+EMAIL_DATA.NAME,
+        title: EMAIL_DATA.NAME,
+        src: EMAIL_DATA.SRC,
     },
-    style: STYLE_FOOTER_IMG,
-    events: EVENTS_FOOTER_IMA,
+    [PROPERTICE.STYLE]: STYLE_FOOTER_IMG,
+    [PROPERTICE.EVENTS]: EVENTS_FOOTER_IMA,
 }
+
 // footer images template
 const FOOTER_IMG_LINKDIN = {
-    element: IMG,
-    perent_id: "id_a_"+LINKDIN,
-    attributs: {
-        id: "id_img_"+LINKDIN,
-        title: LINKDIN,
-        src: LINKDIN_SRC,
+    [PROPERTICE.ELEMENT]: TAG.IMG,
+    [PROPERTICE.PERENT_ID]: "id_a_"+LINKDIN_DATA.NAME,
+    [PROPERTICE.ATTRIBUTS]: {
+        id: "id_img_"+LINKDIN_DATA.NAME,
+        title: LINKDIN_DATA.NAME,
+        src: LINKDIN_DATA.SRC,
     },
-    style: STYLE_FOOTER_IMG,
-    events: EVENTS_FOOTER_IMA,
+    [PROPERTICE.STYLE]: STYLE_FOOTER_IMG,
+    [PROPERTICE.EVENTS]: EVENTS_FOOTER_IMA,
 }
+
 // footer images template
 const FOOTER_IMG_GITHUB = {
-    element: IMG,
-    perent_id: "id_a_"+GITHUB,
-    attributs: {
-            id: "id_img_"+GITHUB,
-            title: GITHUB,
-            src: GITHUB_SRC,
+    [PROPERTICE.ELEMENT]: TAG.IMG,
+    [PROPERTICE.PERENT_ID]: "id_a_"+GITHUB_DATA.NAME,
+    [PROPERTICE.ATTRIBUTS]: {
+            id: "id_img_"+GITHUB_DATA.NAME,
+            title: GITHUB_DATA.NAME,
+            src: GITHUB_DATA.SRC,
     },
-    style: STYLE_FOOTER_IMG,
-    events: EVENTS_FOOTER_IMA,
+    [PROPERTICE.STYLE]: STYLE_FOOTER_IMG,
+    [PROPERTICE.EVENTS]: EVENTS_FOOTER_IMA,
 }
+
 // footer images template
 const FOOTER_IMG_LOCATION = {
-    element: IMG,
-    perent_id: "id_a_"+LOCATION,
-    attributs: {
-        id: "id_img_"+LOCATION,
-        title: LOCATION,
-        src: LOCATION_SRC,
+    [PROPERTICE.ELEMENT]: TAG.IMG,
+    [PROPERTICE.PERENT_ID]: "id_a_"+LOCATION_DATA.NAME,
+    [PROPERTICE.ATTRIBUTS]: {
+        id: "id_img_"+LOCATION_DATA.NAME,
+        title: LOCATION_DATA.NAME,
+        src: LOCATION_DATA.SRC,
     },
-    style: STYLE_FOOTER_IMG,
-    events: EVENTS_FOOTER_IMA,
+    [PROPERTICE.STYLE]: STYLE_FOOTER_IMG,
+    [PROPERTICE.EVENTS]: EVENTS_FOOTER_IMA,
 }
+
+const SECTION_FOOTER_DATA = [
+    FOOTER_META,
+    FOOTER_A_WHATSAPP,
+    FOOTER_A_EMAIL,
+    FOOTER_A_LINKDIN,
+    FOOTER_A_GITHUB,
+    FOOTER_A_LOCATION,
+    FOOTER_IMG_WHATSAPP,
+    FOOTER_IMG_EMAIL,
+    FOOTER_IMG_LINKDIN,
+    FOOTER_IMG_GITHUB,
+    FOOTER_IMG_LOCATION,
+]
 
 export {
     FOOTER_META,
@@ -209,6 +216,3 @@ export {
     FOOTER_IMG_GITHUB,
     FOOTER_IMG_LOCATION,
 }
-
-
-

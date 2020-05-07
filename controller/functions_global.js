@@ -1,5 +1,5 @@
 import { 
-    INNER_HTML, ID_BODY,
+    ID, PROPERTICE
 } from '../model/000_consts.js'
 
 import {
@@ -9,13 +9,15 @@ import {
 
 var WINDOW_EVENTS = ["resize", "load"];
 var FUNCTION_EVENTS = ["click"];
-var ELEMENT = "element";
-var ID = "id";
-var PERENT_ID = "perent_id";
-var STYLE = "style";
-var ATTRIBUTS = "attributs";
-var EVENTS = "events";
-var FUNCTIONS = "functions";
+var INNER_HTML = PROPERTICE.INNER_HTML;
+var ELEMENT = PROPERTICE.ELEMENT;
+var _ID = "id";
+var PERENT_ID = PROPERTICE.PERENT_ID;
+var STYLE = PROPERTICE.STYLE;
+var ATTRIBUTS = PROPERTICE.ATTRIBUTS;
+var EVENTS = PROPERTICE.EVENTS;
+var FUNCTIONS = PROPERTICE.FUNCTIONS;
+var ID_BODY = ID.BODY;
 
 function loadstaticHtmltoMain(event){
     /**
@@ -102,7 +104,7 @@ class elementCreator {
         var test_key_3 = this.testExistence(ATTRIBUTS);
         var test_all = test_key_1 & test_key_2  & test_key_3;
         if (test_all) {
-            if (this.testExistence(ID, this.SOURCE_DICT[ATTRIBUTS])) {
+            if (this.testExistence(_ID, this.SOURCE_DICT[ATTRIBUTS])) {
                 return true;
             }
         }
@@ -207,7 +209,7 @@ class windowEventCreator {
 
     constructor(element_dict) {
         this.element_dict = element_dict;
-        this.element_id = this.element_dict[ATTRIBUTS][ID];
+        this.element_id = this.element_dict[ATTRIBUTS][_ID];
         this.window_events_list = [];
     }
 
@@ -254,20 +256,10 @@ function getElementHeight(element) {
         if (height) {
             return height;
         }
-        console.error(`${element.id}: cannot get the element height`);
+        console.error(`${element.id}: cannot get the input element height`);
     }
     console.error('invalid input')
     return null
-}
-
-function getImageSize(origin){
-    var window_width = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-    var window_height = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    if (origin) {
-        
-    }
-
-
 }
 
 export {

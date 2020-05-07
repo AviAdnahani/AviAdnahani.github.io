@@ -1,47 +1,44 @@
-import { 
-    DIV, 
-    HEADER, 
-    ID_BODY,
-    ID_HEADER, 
-    ID_HEADER_BOTTOM, 
-    ID_LOGO,
-    COLOR_GREEN_DARK,
-    COLOR_GREEN_LIGHT,  
-    PATH_LOGO,
-    IMG,
-    HEADER_FONT_SIZE,
+import {
+    TAG,
+    ID, 
+    WEBSITE_COLORS,
+    URL_INTERNAL,
+    PROPERTICE,
 } from '../model/000_consts.js';
 
 import {
     loadstaticHtmltoMain
 } from '../controller/functions_global.js';
 
+var HEADER_FONT_SIZE = "2vh";
+var PATH_LOGO = URL_INTERNAL.LOGO;
+var ID_HEADER_BUTTONS = ID.HEADER_BUTTONS;
 
 const HEADER_META = {
-    element: HEADER,
-    perent_id: ID_BODY,
-    attributs: {id: ID_HEADER},
-    style: {
+    [PROPERTICE.ELEMENT]: TAG.HEADER,
+    [PROPERTICE.PERENT_ID]: ID.BODY,
+    [PROPERTICE.ATTRIBUTS]: {id: ID.HEADER},
+    [PROPERTICE.STYLE]: {
         boxShadow: "black 0px 0px 10px 0px",
         width: "100%",
         position: "fixed",
         display: "flex",
         color: "white",
-        background: COLOR_GREEN_DARK,
+        background: WEBSITE_COLORS.GREEN_DARK,
         top: "0", 
         flexDirection: "row",
     }
 };
 
 const LOGO_IMAGE_META = {
-    element: IMG,
-    perent_id: ID_HEADER,
-    attributs: { 
-        id: ID_LOGO,
+    [PROPERTICE.ELEMENT]: TAG.IMG,
+    [PROPERTICE.PERENT_ID]: ID.HEADER,
+    [PROPERTICE.ATTRIBUTS]: { 
+        id: ID.LOGO,
         src: PATH_LOGO,
         alt: "mylogo",
     },
-    style: {
+    [PROPERTICE.STYLE]: {
         display: "block",
         padding: "1%",
         // width: "20%",
@@ -51,14 +48,14 @@ const LOGO_IMAGE_META = {
 };
 
 const HEADER_BOTTOM_META = {
-    element: DIV,
-    perent_id: ID_HEADER,
-    attributs: {id: ID_HEADER_BOTTOM},
-    style: {
+    [PROPERTICE.ELEMENT]: TAG.DIV,
+    [PROPERTICE.PERENT_ID]: ID.HEADER,
+    [PROPERTICE.ATTRIBUTS]: {id: ID_HEADER_BUTTONS},
+    [PROPERTICE.STYLE]: {
         display: "flex",
         // flexDirection: "row",
         flexWrap: "wrap",
-        // width: "90%",
+        width: "100%",
         textTransform: "capitalize",
         margin: "auto",
         marginTop: "0",
@@ -78,17 +75,17 @@ var GFUNC = 'loadMain()';
 
 var GEVENT = {
     mouseenter: {
-        style: {
-            background: COLOR_GREEN_LIGHT,
+        [PROPERTICE.STYLE]: {
+            background: WEBSITE_COLORS.GREEN_LIGHT,
         },
     },
     mouseleave: {
-        style: {
-            background: COLOR_GREEN_DARK,
+        [PROPERTICE.STYLE]: {
+            background: WEBSITE_COLORS.GREEN_DARK,
         }
     },
     click: {
-        functions: [
+        FUNCTIONS: [
             loadstaticHtmltoMain,
         ]
     }
@@ -96,8 +93,8 @@ var GEVENT = {
 
 var GSTYLE = {
     display: "flex",
-    padding: "1vw",
-    // width: "100%",
+    padding: "1vw 4vw 1vw 4vw",
+    // width: "20%",
     alignItems: "center",
     justifyContent: "center",
     userSelect: "none",
@@ -105,58 +102,58 @@ var GSTYLE = {
 }
 
 const HEADER_BOTTOM_INTRODUCTION = {
-    element: DIV,
-    perent_id: ID_HEADER_BOTTOM,
-    innerHtml: INTRODUCTION,
-    attributs: {
+    [PROPERTICE.ELEMENT]: TAG.DIV,
+    [PROPERTICE.PERENT_ID]: ID_HEADER_BUTTONS,
+    [PROPERTICE.INNER_HTML]: INTRODUCTION,
+    [PROPERTICE.ATTRIBUTS]: {
         id: 'id_' + INTRODUCTION,  
     },
-    style: GSTYLE,
-    events: GEVENT,
+    [PROPERTICE.STYLE]: GSTYLE,
+    [PROPERTICE.EVENTS]: GEVENT,
 }
 
 const HEADER_BOTTOM_EXPERIENCE = {
-    element: DIV,
-    perent_id: ID_HEADER_BOTTOM,
-    innerHtml: EXPERIENCE,
-    attributs: {
+    [PROPERTICE.ELEMENT]: TAG.DIV,
+    [PROPERTICE.PERENT_ID]: ID_HEADER_BUTTONS,
+    [PROPERTICE.INNER_HTML]: EXPERIENCE,
+    [PROPERTICE.ATTRIBUTS]: {
         id: "id_" + EXPERIENCE,
     },
-    style: GSTYLE,
-    events: GEVENT,
+    [PROPERTICE.STYLE]: GSTYLE,
+    [PROPERTICE.EVENTS]: GEVENT,
 }
 
 const HEADER_BOTTOM_EDUCATION = {
-    element: DIV,
-    perent_id: ID_HEADER_BOTTOM,
-    innerHtml: EDUCATION,
-    attributs: {
+    [PROPERTICE.ELEMENT]: TAG.DIV,
+    [PROPERTICE.PERENT_ID]: ID_HEADER_BUTTONS,
+    [PROPERTICE.INNER_HTML]: EDUCATION,
+    [PROPERTICE.ATTRIBUTS]: {
         id: "id_"+EDUCATION,
     },
-    style: GSTYLE,
-    events: GEVENT,
+    [PROPERTICE.STYLE]: GSTYLE,
+    [PROPERTICE.EVENTS]: GEVENT,
 }
 
 const HEADER_BOTTOM_PROJECTS = {
-    element: DIV,
-    perent_id: ID_HEADER_BOTTOM,
-    innerHtml: PROJECTS,
-    attributs: {
+    [PROPERTICE.ELEMENT]: TAG.DIV,
+    [PROPERTICE.PERENT_ID]: ID_HEADER_BUTTONS,
+    [PROPERTICE.INNER_HTML]: PROJECTS,
+    [PROPERTICE.ATTRIBUTS]: {
         id: "id_"+PROJECTS,
     },
-    style: GSTYLE,
-    events: GEVENT,
+    [PROPERTICE.STYLE]: GSTYLE,
+    [PROPERTICE.EVENTS]: GEVENT,
 }
 
 const HEADER_BOTTOM_CONTACT = {
-    element: DIV,
-    perent_id: ID_HEADER_BOTTOM,
-    innerHtml: CONTACT,
-    attributs: {
+    [PROPERTICE.ELEMENT]: TAG.DIV,
+    [PROPERTICE.PERENT_ID]: ID_HEADER_BUTTONS,
+    [PROPERTICE.INNER_HTML]: CONTACT,
+    [PROPERTICE.ATTRIBUTS]: {
         id: "id_" + CONTACT,
     },
-    style: GSTYLE,
-    events: GEVENT,
+    [PROPERTICE.STYLE]: GSTYLE,
+    [PROPERTICE.EVENTS]: GEVENT,
 }
 
 export { 
