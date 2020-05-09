@@ -1,5 +1,5 @@
-import {getElementHeight} from './functions_global.js';
-import { ID } from '../model/000_consts.js'
+import {getElementHeight} from '../functions/functions_global.js';
+import { ID } from '../../model/000_consts.js';
 
 function getHeaderHeight() {
     var id = ID.HEADER;
@@ -16,6 +16,16 @@ function getFooterHeight () {
     var F = document.getElementById(id);
     if (F) {
         return getElementHeight(F);
+    }
+    console.error(`cannot get the element ${id}`);
+    return null;
+}
+
+function getMainTop () {
+    var id = ID.MAIN;
+    var M = document.getElementById(id);
+    if (M) {
+        return window.getComputedStyle(M).getPropertyValue("top");;
     }
     console.error(`cannot get the element ${id}`);
     return null;

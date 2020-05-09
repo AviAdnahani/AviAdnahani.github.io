@@ -27,7 +27,9 @@ const ID = {
     FOOTER: "id_footer",
     LOGO: "id_logo",
     MAIN_BODY: "id_main_body",
-    PROJECT_TABLE: "id_projects_table",
+    TABLE: "id_table",
+    THEAD: "id_thead",
+    TBODY: "id_tbody",
     MAIN: "id_main",
 }
 
@@ -43,6 +45,8 @@ const TAG = {
     HEADER: 'header',
     FOOTER: 'footer',
     TABLE: "table",
+    THEAD: "thead",
+    TBODY: "tbody",
     TR: 'tr',
     TH: 'th',
     TD: 'td',
@@ -103,6 +107,7 @@ const PROPERTICE = {
     STYLE: "STYLE",
     EVENTS: "EVENTS",
     FUNCTIONS: "FUNCTIONS",
+    ID: "ID",
 }
 
 export { 

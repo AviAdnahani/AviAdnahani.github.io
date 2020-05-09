@@ -1,5 +1,5 @@
 import { TAG, ID, WEBSITE_COLORS, URL_INTERNAL, PROPERTICE, HEADER_BUTTONS_TXT } from '../model/000_consts.js';
-import { loadstaticHtmltoMain } from '../controller/functions_global.js';
+import { loadstaticHtmltoMain } from '../controller/events/events_load.js';
 
 var HEADER_FONT_SIZE = "2vh";
 var LOGO_PATH = URL_INTERNAL.LOGO;
