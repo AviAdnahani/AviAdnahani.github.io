@@ -1,5 +1,4 @@
-import {TAG, WEBSITE_COLORS} from '../../model/000_consts.js';
-import { getHeaderHeight, getFooterHeight } from '../events/events_main.js';
+import {TAG, WEBSITE_COLORS} from '../../model/consts.js';
 
 const SIZE_TITLE = "5vh";
 const SIZE_MINI_TITLE = "3vh";
@@ -20,7 +19,6 @@ class tableCreator {
     run(){
         let table = document.createElement(TAG.TABLE);
         table.style.width = "100%";
-        // table.style.background = "blue";
         table.style.borderCollapse = "collapse";
         let thead = document.createElement(TAG.THEAD);
         let tbody = document.createElement(TAG.TBODY);
@@ -53,18 +51,12 @@ class tableCreator {
             cell.style.color = WEBSITE_COLORS.ORANGE_DARK;
             cell.style.width = "10%";
             cell.style.fontSize = SIZE_LEFT_TITLE;
-            
-        }
-        else{
-            
         }
         if (column==1){
             cell.style.width = "80%";
             cell.style.textAlign = "left";
-
         }
         if (column==1 & row%2==0) {
-            
             const main_title = document.createElement(TAG.DIV);
             main_title.innerHTML = this.TDATA[row][column][0];
             main_title.style.fontSize = SIZE_TITLE;
@@ -80,8 +72,8 @@ class tableCreator {
         }
         if (row%2==0){
             cell.style.background = WEBSITE_COLORS.GREEN_WHITE;
-            cell.style.position = "sticky";
-            cell.style.top = getHeaderHeight();
+            // cell.style.position = "sticky";
+            // cell.style.top = getHeaderHeight();
         }
         else{
             cell.style.fontSize = SIZE_CONTANT;
@@ -94,8 +86,38 @@ class tableCreator {
         }
         cell.setAttribute('id', `c${row}${column}`);
     }
-
-
 }
 
-export {tableCreator}
+function convertDictDataToarray(DICTS) {
+    var array_data = [];
+    for (var v1 in DICTS) {
+        var dict_level_1 = DICTS[v1];
+        for (var v2 in dict_level_1) {
+            var temp_arr_2 = [];
+            var dict_level_2 = dict_level_1[v2];
+            for (var v3 in dict_level_2) {
+                var dict_level_3 = dict_level_2[v3];
+                if (typeof dict_level_3 === 'string' || dict_level_3 instanceof String){
+                    temp_arr_2.push(dict_level_2[v3]);
+                }
+                else{
+                    var temp_arr_4 = [];
+                    for (var v4 in dict_level_3){
+                        temp_arr_4.push(dict_level_3[v4]);
+                    }
+                    temp_arr_2.push(temp_arr_4);
+                }
+            }
+            array_data.push(temp_arr_2);
+        }
+    }
+    return array_data;
+}
+
+function getTable(dict_data) {
+    const list_data = convertDictDataToarray(dict_data);
+    const table = new tableCreator(list_data).run();
+    return table;
+}
+
+export {getTable}

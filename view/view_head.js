@@ -2,7 +2,7 @@ import {
     TAG,
     URL_EXTERNAL,
     PROPERTICE 
-} from '../model/000_consts.js'
+} from '../model/consts.js'
 
 const STYLESHEET_FONT_META = {
     [PROPERTICE.ELEMENT]: TAG.LINK, 

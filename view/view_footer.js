@@ -4,7 +4,7 @@ import {
     WEBSITE_COLORS,
     SOCIAL_MADIA_DATA,
     PROPERTICE,
-} from '../model/000_consts.js'
+} from '../model/consts.js'
 
 
 const WHATSAPP_DATA = SOCIAL_MADIA_DATA.WHATSAPP;

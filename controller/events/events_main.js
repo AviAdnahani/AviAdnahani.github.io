@@ -1,5 +1,5 @@
 import {getElementHeight} from '../functions/functions_global.js';
-import { ID } from '../../model/000_consts.js';
+import { ID } from '../../model/consts.js';
 
 function getHeaderHeight() {
     var id = ID.HEADER;

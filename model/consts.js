@@ -110,6 +110,16 @@ const PROPERTICE = {
     ID: "ID",
 }
 
+const PROPERTICE_TABLE_DATA = {
+    ROW1: 'ROW_1',
+    ROW2: 'ROW_2',
+    ROW3: 'ROW_3',
+    CELL1: 'CELL_1',
+    CELL2: 'CELL_2',
+    CELL3: 'CELL_3',
+    MAIN_TITLE: 'MAIN_TITLE',
+    MINI_TITLE: 'MINI_TITLE',
+}
 export { 
     HEADER_BUTTONS_TXT,
     SOCIAL_MADIA_DATA,
@@ -119,4 +129,5 @@ export {
     TAG,
     ID,
     PROPERTICE,
+    PROPERTICE_TABLE_DATA,
 };

@@ -1,4 +1,4 @@
-import { ID, PROPERTICE} from '../../model/000_consts.js';
+import { ID, PROPERTICE} from '../../model/consts.js';
 
 var WINDOW_EVENTS = ["resize", "load"];
 var INNER_HTML = PROPERTICE.INNER_HTML;
