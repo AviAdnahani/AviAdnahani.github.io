@@ -19,7 +19,7 @@ This object are sent to a main function that creates and appendes the element wi
 |-------- events_load.js <br />
 |-------- events_main.js <br />
 |------ functions/ <br />
-|-------- element_creators.js <br /> (the main function)
+|-------- element_creators.js *(the main function)* <br /> 
 |-------- functions_global.js <br />
 |-------- table_creator.js <br />
 |--- run.js <br />
