@@ -7,8 +7,14 @@ const CONTENT = `
 <b>   CV :</b> <a href="../static/AviAdnahaniCV.pdf" download>AviAdnahaniCV</a>
 `; // <a href="/images/myw3schoolsimage.jpg" download>
 
+const python = "<a href='https://www.python.org/'>python</a>";
+const mysql = "<a href='https://www.mysql.com/'>mySQL</a>";
+const mongodb = "<a href='https://www.mongodb.com/'>MongoDB</a>"; 
+const javascript = "<a href='https://www.javascript.com/'>JavaScript</a>";
+
 const CONTENT2 = `
-Software Engineer, experienced with python, mySQL, mongoDB and JS. passionate about learning new technologies. open for new opportunities.
+Software Engineer, experienced with ${python}, ${mysql}, ${mongodb} and ${javascript}. 
+passionate about learning new technologies.
 `;
 const INTRODUCTION = document.createElement('div');
 
@@ -39,7 +45,7 @@ INTRODUCTION.appendChild(top);
 // create top text
 const txt2 = document.createElement('div');
 txt2.style.padding = "2%";
-txt2.style.fontSize = "4vh";
+txt2.style.fontSize = "3vh";
 txt2.style.color = "#3f4949";
 txt2.innerHTML = CONTENT2;
 INTRODUCTION.appendChild(txt2);

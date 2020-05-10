@@ -1,9 +1,13 @@
 import {PROPERTICE_TABLE_DATA} from './consts.js';
 
-const text = 'Developed code for Big Data analysis using python and pandas, worked with Mysql and MongoDB. Collaborated in an increment of the test coverage by developing an automated test creator which resulted in more than 90% test coverage in less than 3 months.';
+const text = `Developed code for Big Data analysis using python and pandas,<br> 
+worked with Mysql ,MongoDB, Docker and K8S.<br><br>
+Collaborated in an increment of the test coverage 
+by developing an automated test creator which resulted in more than 90% test coverage in less than 3 months.`;
+
 const EMPTY = '';
 //main_
-const TRAX_MAIN_CONTENT = `${text}<br><br><br>`;
+const TRAX_MAIN_CONTENT = `${text}<br>`;
 const TRAX = {
     [PROPERTICE_TABLE_DATA.ROW1]: {
         [PROPERTICE_TABLE_DATA.CELL1]: '2020<br>2019',

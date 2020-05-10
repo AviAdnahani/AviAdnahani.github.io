@@ -1,9 +1,9 @@
 import {TAG, WEBSITE_COLORS} from '../../model/consts.js';
 
-const SIZE_TITLE = "5vh";
-const SIZE_MINI_TITLE = "3vh";
+const SIZE_TITLE = "3vh";
+const SIZE_MINI_TITLE = "2vh";
 const SIZE_LEFT_TITLE = "2vh";
-const SIZE_CONTANT = "3vh";
+const SIZE_CONTANT = "2vh";
 
 class tableCreator {
     #TDATA = null;
@@ -72,11 +72,11 @@ class tableCreator {
         }
         if (row%2==0){
             cell.style.background = WEBSITE_COLORS.GREEN_WHITE;
-            // cell.style.position = "sticky";
             // cell.style.top = getHeaderHeight();
         }
         else{
             cell.style.fontSize = SIZE_CONTANT;
+            cell.style.padding = "2%";
         }
     }
 
