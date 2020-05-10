@@ -1,6 +1,33 @@
 import {PROPERTICE_TABLE_DATA} from './consts.js';
 
-const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex sem, vulputate in leo vitae, pharetra laoreet elit. Maecenas condimentum tellus a tellus tincidunt ornare. Sed sed eleifend lectus. Cras id vestibulum augue, non maximus nulla. Suspendisse elit justo, semper at viverra ut, tempus eget lorem. Vivamus posuere fermentum gravida. Pellentesque vitae erat arcu. Curabitur et lobortis nisi, sit amet auctor augue. Integer tincidunt, purus nec rhoncus maximus, risus justo venenatis nisl, at euismod est risus vitae nunc. Proin pretium nunc vel ipsum pharetra accumsan. Phasellus vitae augue pulvinar, ornare leo vitae, aliquet tellus. Etiam vitae tincidunt nisi. Proin et diam semper, consectetur arcu at, tincidunt magna. Etiam vestibulum a velit non congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex sem, vulputate in leo vitae, pharetra laoreet elit. Maecenas condimentum tellus a tellus tincidunt ornare. Sed sed eleifend lectus. Cras id vestibulum augue, non maximus nulla. Suspendisse elit justo, semper at viverra ut, tempus eget lorem. Vivamus posuere fermentum gravida. Pellentesque vitae erat arcu. Curabitur et lobortis nisi, sit amet auctor augue. Integer tincidunt, purus nec rhoncus maximus, risus justo venenatis nisl, at euismod est risus vitae nunc. Proin pretium nunc vel ipsum pharetra accumsan. Phasellus vitae augue pulvinar, ornare leo vitae, aliquet tellus. Etiam vitae tincidunt nisi. Proin et diam semper, consectetur arcu at, tincidunt magna. Etiam vestibulum a velit non congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex sem, vulputate in leo vitae, pharetra laoreet elit. Maecenas condimentum tellus a tellus tincidunt ornare. Sed sed eleifend lectus. Cras id vestibulum augue, non maximus nulla. Suspendisse elit justo, semper at viverra ut, tempus eget lorem. Vivamus posuere fermentum gravida. Pellentesque vitae erat arcu. Curabitur et lobortis nisi, sit amet auctor augue. Integer tincidunt, purus nec rhoncus maximus, risus justo venenatis nisl, at euismod est risus vitae nunc. Proin pretium nunc vel ipsum pharetra accumsan. Phasellus vitae augue pulvinar, ornare leo vitae, aliquet tellus. Etiam vitae tincidunt nisi. Proin et diam semper, consectetur arcu at, tincidunt magna. Etiam vestibulum a velit non congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ex sem, vulputate in leo vitae, pharetra laoreet elit. Maecenas condimentum tellus a tellus tincidunt ornare. Sed sed eleifend lectus. Cras id vestibulum augue, non maximus nulla. Suspendisse elit justo, semper at viverra ut, tempus eget lorem. Vivamus posuere fermentum gravida. Pellentesque vitae erat arcu. Curabitur et lobortis nisi, sit amet auctor augue. Integer tincidunt, purus nec rhoncus maximus, risus justo venenatis nisl, at euismod est risus vitae nunc. Proin pretium nunc vel ipsum pharetra accumsan. Phasellus vitae augue pulvinar, ornare leo vitae, aliquet tellus. Etiam vitae tincidunt nisi. Proin et diam semper, consectetur arcu at, tincidunt magna. Etiam vestibulum a velit non congue.'
+const text = `
+<h3 id="introduction">Introduction</h3> 
+<p>Responsive single page web application following MVC design pattern. wrote using HTML5, CSS3 and JavaScript. the core infrastructure are based on an internal objects that holds the HTML, CSS and EVENTS components, 
+This object are sent to a main function that creates and appendes the element with all his components. the MVC are implemented as follow:</p>
+<ul>
+<li><strong>View</strong> - files contaning the internal objects.</li>
+<li><strong>Model</strong> - files contaning the metadata of the object (to mock fetched data from DB).</li>
+<li><strong>Controller</strong> - files contaning the functions that takes the internal object and the metadata and creates elements and events.</li>
+</ul>
+<h3 id="files-tree-main-files-">Files Tree (main files)</h3>
+<p>|--- model/ <br />
+|------ consts.js <br />
+|--- view/ <br />
+|------ view_footer.js <br />
+|------ view_head.js <br />
+|------ view_header.js <br />
+|------ view_main.js <br />
+|--- controller/ <br />
+|------ events/ <br />
+|-------- events_load.js <br />
+|-------- events_main.js <br />
+|------ functions/ <br />
+|-------- element_creators.js <em>(the main function)</em> <br /> 
+|-------- functions_global.js <br />
+|-------- table_creator.js <br />
+|--- run.js <br /></p>
+<a href="https://github.com/AviAdnahani/AviAdnahani.github.io">Checkout this project on GitHub</a>
+`
 
 const EMPTY = '';
 

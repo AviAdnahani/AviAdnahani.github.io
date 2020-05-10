@@ -1,6 +1,6 @@
 import {ID, WEBSITE_COLORS} from  '../../model/consts.js';
 import {MAIN_SECTIONS} from  '../../view/view_main.js';
-import {getHeaderHeight} from './events_main.js';
+import {getHeaderHeight, getMainTop} from './events_main.js';
 
 function loadstaticHtmltoMain(event){
     /**

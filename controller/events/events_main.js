@@ -34,4 +34,5 @@ function getMainTop () {
 export {
     getHeaderHeight,
     getFooterHeight,
+    getMainTop
 }
